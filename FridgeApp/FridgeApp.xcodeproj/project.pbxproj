@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		801753F62880A9E300414078 /* AddProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801753F52880A9E300414078 /* AddProductViewController.swift */; };
+		801753F92880AA4C00414078 /* ManuallyAddProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801753F82880AA4C00414078 /* ManuallyAddProductViewController.swift */; };
 		805BD19D287B44CA00209326 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805BD19C287B44CA00209326 /* AppDelegate.swift */; };
 		805BD19F287B44CA00209326 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805BD19E287B44CA00209326 /* SceneDelegate.swift */; };
 		805BD1A1287B44CA00209326 /* RootTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805BD1A0287B44CA00209326 /* RootTabBarController.swift */; };
@@ -18,9 +20,12 @@
 		805BD1BE287B467200209326 /* ParsingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805BD1BD287B467200209326 /* ParsingService.swift */; };
 		805BD1C1287B468200209326 /* DownloadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805BD1C0287B468200209326 /* DownloadService.swift */; };
 		805BD1D5287DF10F00209326 /* ProductList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 805BD1D3287DF10F00209326 /* ProductList.storyboard */; };
+		805BD1DA2880980500209326 /* BarcodeScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805BD1D92880980500209326 /* BarcodeScannerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		801753F52880A9E300414078 /* AddProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductViewController.swift; sourceTree = "<group>"; };
+		801753F82880AA4C00414078 /* ManuallyAddProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManuallyAddProductViewController.swift; sourceTree = "<group>"; };
 		805BD199287B44CA00209326 /* FridgeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FridgeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		805BD19C287B44CA00209326 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		805BD19E287B44CA00209326 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -34,6 +39,7 @@
 		805BD1BD287B467200209326 /* ParsingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsingService.swift; sourceTree = "<group>"; };
 		805BD1C0287B468200209326 /* DownloadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadService.swift; sourceTree = "<group>"; };
 		805BD1D4287DF10F00209326 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ProductList.storyboard; sourceTree = "<group>"; };
+		805BD1D92880980500209326 /* BarcodeScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +91,9 @@
 			children = (
 				805BD1A0287B44CA00209326 /* RootTabBarController.swift */,
 				805BD1B4287B458800209326 /* ProductListViewController.swift */,
+				805BD1D92880980500209326 /* BarcodeScannerViewController.swift */,
+				801753F52880A9E300414078 /* AddProductViewController.swift */,
+				801753F82880AA4C00414078 /* ManuallyAddProductViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -178,12 +187,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				805BD1A1287B44CA00209326 /* RootTabBarController.swift in Sources */,
+				801753F92880AA4C00414078 /* ManuallyAddProductViewController.swift in Sources */,
 				805BD1C1287B468200209326 /* DownloadService.swift in Sources */,
 				805BD19D287B44CA00209326 /* AppDelegate.swift in Sources */,
 				805BD1B8287B45AA00209326 /* Product.swift in Sources */,
 				805BD1B5287B458800209326 /* ProductListViewController.swift in Sources */,
 				805BD1BE287B467200209326 /* ParsingService.swift in Sources */,
+				805BD1DA2880980500209326 /* BarcodeScannerViewController.swift in Sources */,
 				805BD19F287B44CA00209326 /* SceneDelegate.swift in Sources */,
+				801753F62880A9E300414078 /* AddProductViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
