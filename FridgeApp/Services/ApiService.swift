@@ -42,7 +42,11 @@ class ApiService {
                     print(groceryItemModel);
                     if(groceryItemModel.total>0)
                     {
-                        return onSuccess(groceryItemModel.items.first!)
+                        var item = groceryItemModel.items.first!
+                        
+                        //clearing preloaded cateory that comes from the api
+                        item.category = ""
+                        return onSuccess(item)
                     }
                     
                 }
