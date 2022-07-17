@@ -7,6 +7,7 @@
 
 import Foundation
 
+///This class hold all constants that will be used throughout the application
 class Constants{
 
     //"https://api.upcdatabase.org/product/068100046120?apikey=098f6bc22621d_demo_4de4e8326b4f6"

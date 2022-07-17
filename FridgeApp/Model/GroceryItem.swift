@@ -13,8 +13,8 @@
 
 import Foundation
 
-//   let groceryItem = try? newJSONDecoder().decode(GroceryItem.self, from: jsonData)
 // MARK: - GroceryItem
+/// Entity for grocery item
 struct GroceryItem : Codable {
     let ean, title, groceryItemDescription, upc: String?
     let brand, model, color, size: String?
@@ -23,6 +23,7 @@ struct GroceryItem : Codable {
     let images: [String]?
 }
 
+///Json model for grocery item
  struct GroceryItemModel:Codable{
  
     let total: Int

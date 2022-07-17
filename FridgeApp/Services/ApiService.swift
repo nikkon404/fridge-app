@@ -11,10 +11,12 @@ class ApiService {
     
     ///[onSuccess] callback will be triggered if HTTP request and json data is parsed successfully
     ///
-    ///[onError] callback will be triggered if any error occoures in the project
+    ///[onError] callback will be triggered if any error occoures in the process
     
     static func fetchData(barCode: String,  onSuccess: @escaping (GroceryItem)-> Void, onError: @escaping (String) -> Void) {
         let url = Constants.apiUrl + barCode
+        
+        //Configuring http request
         let request = NSMutableURLRequest(url: NSURL(string:
                                                         url)! as URL,
                                           cachePolicy: .useProtocolCachePolicy,
@@ -22,6 +24,7 @@ class ApiService {
         request.httpMethod = "GET"
         
         let session = URLSession.shared
+        //creating http session session
         let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
             if (error != nil) {
                 print(error ?? "Error!")
@@ -57,6 +60,7 @@ class ApiService {
             return onError("No product found for the given barcode")
             
         })
+        //executing session
         dataTask.resume()
     }
 }
