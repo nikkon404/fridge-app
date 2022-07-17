@@ -83,16 +83,17 @@ isChecked INTEGER);
              
              if sqlite3_prepare_v2(db, query, -1, &statement, nil) == SQLITE_OK{
                 
-                sqlite3_bind_text(statement, 2, (item.ean! as NSString).utf8String, -1, nil)
+                 //binding values with ? placeholder in the query
+                sqlite3_bind_text(statement, 1, (item.ean! as NSString).utf8String, -1, nil)
                 sqlite3_bind_text(statement, 2, (item.upc! as NSString).utf8String, -1, nil)
-                sqlite3_bind_text(statement, 2, (item.dateAdded! as NSString).utf8String, -1, nil)
-                sqlite3_bind_text(statement, 2, (item.title! as NSString).utf8String, -1, nil)
-                sqlite3_bind_text(statement, 2, (item.category! as NSString).utf8String, -1, nil)
-                sqlite3_bind_text(statement, 2, (item.expiryDate! as NSString).utf8String, -1, nil)
-                sqlite3_bind_text(statement, 2, ((item.groceryItemDescription ?? "" )as NSString).utf8String, -1, nil)
-                sqlite3_bind_text(statement, 2, ((item.brand ?? "") as NSString).utf8String, -1, nil)
-                
-                sqlite3_bind_text(statement, 2, ((item.getRenderableImage() ?? "") as NSString).utf8String, -1, nil)
+                sqlite3_bind_text(statement, 3, (item.dateAdded! as NSString).utf8String, -1, nil)
+                sqlite3_bind_text(statement, 4, (item.title! as NSString).utf8String, -1, nil)
+                sqlite3_bind_text(statement, 5, (item.category! as NSString).utf8String, -1, nil)
+                sqlite3_bind_text(statement, 6, (item.expiryDate! as NSString).utf8String, -1, nil)
+                sqlite3_bind_text(statement, 7, ((item.groceryItemDescription ?? "" )as NSString).utf8String, -1, nil)
+                sqlite3_bind_text(statement, 8, ((item.brand ?? "") as NSString).utf8String, -1, nil)                
+                sqlite3_bind_text(statement, 9, ((item.getRenderableImage() ?? "") as NSString).utf8String, -1, nil)
+                 
                  if sqlite3_step(statement) == SQLITE_DONE {
                      print("Data inserted success")
                  }else {
