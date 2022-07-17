@@ -17,10 +17,13 @@
 		805BD1A9287B44CB00209326 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 805BD1A7287B44CB00209326 /* LaunchScreen.storyboard */; };
 		805BD1B5287B458800209326 /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805BD1B4287B458800209326 /* ProductListViewController.swift */; };
 		805BD1B8287B45AA00209326 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805BD1B7287B45AA00209326 /* Product.swift */; };
-		805BD1BE287B467200209326 /* ParsingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805BD1BD287B467200209326 /* ParsingService.swift */; };
 		805BD1C1287B468200209326 /* DownloadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805BD1C0287B468200209326 /* DownloadService.swift */; };
 		805BD1D5287DF10F00209326 /* ProductList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 805BD1D3287DF10F00209326 /* ProductList.storyboard */; };
 		805BD1DA2880980500209326 /* BarcodeScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805BD1D92880980500209326 /* BarcodeScannerViewController.swift */; };
+		9897326B2884528100650C2E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9897326A2884528100650C2E /* Constants.swift */; };
+		9897326F28845BE300650C2E /* GroceryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9897326E28845BE300650C2E /* GroceryItem.swift */; };
+		9897327228845E1800650C2E /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9897327128845E1800650C2E /* ApiService.swift */; };
+		9897327A28847F8400650C2E /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9897327928847F8400650C2E /* DatabaseService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,10 +39,13 @@
 		805BD1AA287B44CB00209326 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		805BD1B4287B458800209326 /* ProductListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
 		805BD1B7287B45AA00209326 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
-		805BD1BD287B467200209326 /* ParsingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsingService.swift; sourceTree = "<group>"; };
 		805BD1C0287B468200209326 /* DownloadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadService.swift; sourceTree = "<group>"; };
 		805BD1D4287DF10F00209326 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ProductList.storyboard; sourceTree = "<group>"; };
 		805BD1D92880980500209326 /* BarcodeScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerViewController.swift; sourceTree = "<group>"; };
+		9897326A2884528100650C2E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		9897326E28845BE300650C2E /* GroceryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryItem.swift; sourceTree = "<group>"; };
+		9897327128845E1800650C2E /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
+		9897327928847F8400650C2E /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +83,7 @@
 				805BD1BA287B45B800209326 /* Model */,
 				805BD1C3287B468800209326 /* Services */,
 				805BD1B2287B455400209326 /* Controllers */,
+				98973274288477FC00650C2E /* UItilities */,
 				805BD1A2287B44CA00209326 /* Main.storyboard */,
 				805BD1D3287DF10F00209326 /* ProductList.storyboard */,
 				805BD1A7287B44CB00209326 /* LaunchScreen.storyboard */,
@@ -102,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				805BD1B7287B45AA00209326 /* Product.swift */,
+				9897326E28845BE300650C2E /* GroceryItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -109,10 +117,19 @@
 		805BD1C3287B468800209326 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				805BD1BD287B467200209326 /* ParsingService.swift */,
 				805BD1C0287B468200209326 /* DownloadService.swift */,
+				9897327928847F8400650C2E /* DatabaseService.swift */,
+				9897327128845E1800650C2E /* ApiService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		98973274288477FC00650C2E /* UItilities */ = {
+			isa = PBXGroup;
+			children = (
+				9897326A2884528100650C2E /* Constants.swift */,
+			);
+			path = UItilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,14 +204,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				805BD1A1287B44CA00209326 /* RootTabBarController.swift in Sources */,
+				9897326B2884528100650C2E /* Constants.swift in Sources */,
 				801753F92880AA4C00414078 /* ManuallyAddProductViewController.swift in Sources */,
 				805BD1C1287B468200209326 /* DownloadService.swift in Sources */,
 				805BD19D287B44CA00209326 /* AppDelegate.swift in Sources */,
 				805BD1B8287B45AA00209326 /* Product.swift in Sources */,
 				805BD1B5287B458800209326 /* ProductListViewController.swift in Sources */,
-				805BD1BE287B467200209326 /* ParsingService.swift in Sources */,
+				9897327228845E1800650C2E /* ApiService.swift in Sources */,
 				805BD1DA2880980500209326 /* BarcodeScannerViewController.swift in Sources */,
+				9897327A28847F8400650C2E /* DatabaseService.swift in Sources */,
 				805BD19F287B44CA00209326 /* SceneDelegate.swift in Sources */,
+				9897326F28845BE300650C2E /* GroceryItem.swift in Sources */,
 				801753F62880A9E300414078 /* AddProductViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -352,6 +372,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = FridgeApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -359,7 +380,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.conestoga.FridgeApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -370,6 +391,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = FridgeApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -377,7 +399,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.conestoga.FridgeApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
