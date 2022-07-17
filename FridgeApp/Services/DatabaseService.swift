@@ -6,7 +6,104 @@
 //
 
 import Foundation
+import SQLite3
 
 class DatabaseService {
+    private static var db : OpaquePointer?
+    
+    static func initalize() {
+        db = databaseCreate()
+        createGroceryTable()
+        createShoppingTable()
+    }
+    
+    private static func databaseCreate() -> OpaquePointer? {
+        let filePath = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathExtension(Constants.databaseName)
+        
+        var db : OpaquePointer? = nil
+        
+        if sqlite3_open(filePath.path, &db) != SQLITE_OK {
+            print("There is error in creating DB")
+            return nil
+        }else {
+            print("Database has been created with path \(Constants.databaseName)")
+            return db
+        }
+    }
+    
+    private static func createGroceryTable(){
+        let query = """
+CREATE TABLE IF NOT EXISTS \(Constants.groceryTable) (
+id INTEGER PRIMARY KEY,
+ean TEXT,
+upc Text,
+dateAdded TEXT,
+title TEXT,
+category TEXT,
+expiryDate TEXT,
+groceryItemDescription TEXT,
+brand TEXT,
+img, TEXT);
+"""
+        createTable(tableName:Constants.groceryTable, query: query)
+        
+    }
+    
+    
+    private static func createShoppingTable() {
+        let query = """
+CREATE TABLE IF NOT EXISTS \(Constants.shoppingListTable) (
+id INTEGER PRIMARY KEY,
+title TEXT,
+isChecked INTEGER);
+"""
+        createTable(tableName:Constants.shoppingListTable, query: query)
+    }
+    
+    private static func createTable(tableName: String, query: String )  {
+        
+        var statement : OpaquePointer? = nil
+        let res = sqlite3_prepare_v2(db, query, -1, &statement, nil)
+        print(String(describing: res))
+        if res == SQLITE_OK {
+            if sqlite3_step(statement) == SQLITE_DONE {
+                print(tableName + " Table creation success")
+            }else {
+                print(tableName + " Table creation fail")
+            }
+        } else {
+            print(tableName + " Prepration fail")
+        }
+    }
+    static func insertGrocery(item: inout GroceryItem){
+        let query = "INSERT INTO \(Constants.groceryTable) (ean, upc, dateAdded, title, category, expiryDate, groceryItemDescription, brand, img) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);"
+             
+             var statement : OpaquePointer? = nil
+            
+             
+             if sqlite3_prepare_v2(db, query, -1, &statement, nil) == SQLITE_OK{
+                
+                sqlite3_bind_text(statement, 2, (item.ean! as NSString).utf8String, -1, nil)
+                sqlite3_bind_text(statement, 2, (item.upc! as NSString).utf8String, -1, nil)
+                sqlite3_bind_text(statement, 2, (item.dateAdded! as NSString).utf8String, -1, nil)
+                sqlite3_bind_text(statement, 2, (item.title! as NSString).utf8String, -1, nil)
+                sqlite3_bind_text(statement, 2, (item.category! as NSString).utf8String, -1, nil)
+                sqlite3_bind_text(statement, 2, (item.expiryDate! as NSString).utf8String, -1, nil)
+                sqlite3_bind_text(statement, 2, ((item.groceryItemDescription ?? "" )as NSString).utf8String, -1, nil)
+                sqlite3_bind_text(statement, 2, ((item.brand ?? "") as NSString).utf8String, -1, nil)
+                
+                sqlite3_bind_text(statement, 2, ((item.getRenderableImage() ?? "") as NSString).utf8String, -1, nil)
+                 if sqlite3_step(statement) == SQLITE_DONE {
+                     print("Data inserted success")
+                 }else {
+                     print("Data is not inserted in table")
+                 }
+             } else {
+               print("Query is not as per requirement")
+             }
+       
+        
+    }
+    
     
 }

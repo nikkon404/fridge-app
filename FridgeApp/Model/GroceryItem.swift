@@ -5,27 +5,43 @@
 //  Created by Aayush Subedi on 7/17/22.
 //
 
-
-
-// To parse the JSON, add this file to your project and do:
-//
-
-
 import Foundation
 
-// MARK: - GroceryItem
 /// Entity for grocery item
+// MARK: - GroceryItem
 struct GroceryItem : Codable {
-    let ean, title, groceryItemDescription, upc: String?
-    let brand, model, color, size: String?
-    let dimension, weight, category: String?
-    let lowestRecordedPrice, highestRecordedPrice: Double?
-    let images: [String]?
+    //should not be changed once set
+    var id: Int?
+    var ean,upc,dateAdded: String?
+    
+    //variable that can be changed and updated
+    var title,category,expiryDate: String?
+    var groceryItemDescription, brand: String?
+    var images: [String]?
+    
+    var  base64Img: String?
+    
+    
+    ///returns base64 version of the image
+    mutating func getRenderableImage() ->  String? {
+        if(base64Img != nil) {
+            return base64Img
+        }
+        
+        if(images == nil || images?.count == 0 )  {
+            return nil
+        }
+        
+        base64Img = Converter.onlineImageToBase64(imgUrl: images?.first ?? "")
+        return base64Img
+    }
+    
+    
 }
 
 ///Json model for grocery item
- struct GroceryItemModel:Codable{
- 
+struct GroceryItemModel:Codable{
+    
     let total: Int
     let items : [GroceryItem]
 }
