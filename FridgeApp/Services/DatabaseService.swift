@@ -11,12 +11,14 @@ import SQLite3
 class DatabaseService {
     private static var db : OpaquePointer?
     
+    ///Initializer for database
     static func initalize() {
         db = databaseCreate()
         createGroceryTable()
         createShoppingTable()
     }
     
+    ///main method to create database
     private static func databaseCreate() -> OpaquePointer? {
         let filePath = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathExtension(Constants.databaseName)
         
@@ -31,6 +33,7 @@ class DatabaseService {
         }
     }
     
+    //method to create gorcey table
     private static func createGroceryTable(){
         let query = """
 CREATE TABLE IF NOT EXISTS \(Constants.groceryTable) (
@@ -41,6 +44,7 @@ dateAdded TEXT,
 title TEXT,
 category TEXT,
 expiryDate TEXT,
+notificationTime TEXT,
 groceryItemDescription TEXT,
 brand TEXT,
 img, TEXT);
@@ -49,7 +53,7 @@ img, TEXT);
         
     }
     
-    
+    //method to create shopping table
     private static func createShoppingTable() {
         let query = """
 CREATE TABLE IF NOT EXISTS \(Constants.shoppingListTable) (
@@ -75,35 +79,117 @@ isChecked INTEGER);
             print(tableName + " Prepration fail")
         }
     }
-    static func insertGrocery(item: inout GroceryItem){
-        let query = "INSERT INTO \(Constants.groceryTable) (ean, upc, dateAdded, title, category, expiryDate, groceryItemDescription, brand, img) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);"
-             
-             var statement : OpaquePointer? = nil
-            
-             
-             if sqlite3_prepare_v2(db, query, -1, &statement, nil) == SQLITE_OK{
-                
-                 //binding values with ? placeholder in the query
-                sqlite3_bind_text(statement, 1, (item.ean! as NSString).utf8String, -1, nil)
-                sqlite3_bind_text(statement, 2, (item.upc! as NSString).utf8String, -1, nil)
-                sqlite3_bind_text(statement, 3, (item.dateAdded! as NSString).utf8String, -1, nil)
-                sqlite3_bind_text(statement, 4, (item.title! as NSString).utf8String, -1, nil)
-                sqlite3_bind_text(statement, 5, (item.category! as NSString).utf8String, -1, nil)
-                sqlite3_bind_text(statement, 6, (item.expiryDate! as NSString).utf8String, -1, nil)
-                sqlite3_bind_text(statement, 7, ((item.groceryItemDescription ?? "" )as NSString).utf8String, -1, nil)
-                sqlite3_bind_text(statement, 8, ((item.brand ?? "") as NSString).utf8String, -1, nil)                
-                sqlite3_bind_text(statement, 9, ((item.getRenderableImage() ?? "") as NSString).utf8String, -1, nil)
-                 
-                 if sqlite3_step(statement) == SQLITE_DONE {
-                     print("Data inserted success")
-                 }else {
-                     print("Data is not inserted in table")
-                 }
-             } else {
-               print("Query is not as per requirement")
-             }
-       
+    
+    ///Method to inset grocerty item to the database table
+    static func insertGrocery(item: inout GroceryItem) -> Bool{
+        var success = false
+        let query = "INSERT INTO \(Constants.groceryTable) (ean, upc, dateAdded, title, category, expiryDate, notificationTime, groceryItemDescription, brand, img) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);"
         
+        var statement : OpaquePointer? = nil
+        
+        
+        if sqlite3_prepare_v2(db, query, -1, &statement, nil) == SQLITE_OK{
+            
+            //binding values with ? placeholder in the query
+            sqlite3_bind_text(statement, 1, (item.ean! as NSString).utf8String, -1, nil)
+            sqlite3_bind_text(statement, 2, (item.upc! as NSString).utf8String, -1, nil)
+            
+            item.dateAdded = String(describing: Date())
+            sqlite3_bind_text(statement, 3, (item.dateAdded! as NSString).utf8String, -1, nil)
+            sqlite3_bind_text(statement, 4, (item.title! as NSString).utf8String, -1, nil)
+            sqlite3_bind_text(statement, 5, (item.category! as NSString).utf8String, -1, nil)
+            sqlite3_bind_text(statement, 6, (item.expiryDate! as NSString).utf8String, -1, nil)
+            sqlite3_bind_text(statement, 7, (item.notificationTime! as NSString).utf8String, -1, nil)
+            sqlite3_bind_text(statement, 8, ((item.groceryItemDescription ?? "" )as NSString).utf8String, -1, nil)
+            sqlite3_bind_text(statement, 9, ((item.brand ?? "") as NSString).utf8String, -1, nil)
+            sqlite3_bind_text(statement, 10, ((item.getRenderableImage() ?? "") as NSString).utf8String, -1, nil)
+            
+            if sqlite3_step(statement) == SQLITE_DONE {
+                success = true
+                print("Data inserted success")
+            }else {
+                print("Data is not inserted in table")
+            }
+        } else {
+            print("Query is not as per requirement")
+        }
+        return success
+        
+    }
+    
+    static func getAllGroceryItems() -> [GroceryItem]
+    { let query = "SELECT * FROM \(Constants.groceryTable);"
+        var queryStatement: OpaquePointer? = nil
+        var data : [GroceryItem] = []
+        if sqlite3_prepare_v2(db, query, -1, &queryStatement, nil) == SQLITE_OK {
+            while sqlite3_step(queryStatement) == SQLITE_ROW {
+                //id, ean, upc, dateAdded, title, category, expiryDate, notificationTime, groceryItemDescription, brand, img
+                var item = GroceryItem()
+                item.id = Int(sqlite3_column_int(queryStatement, 0))
+                
+                item.ean = String(describing: String(cString: sqlite3_column_text(queryStatement, 1)))
+                
+                item.upc =  String(cString: sqlite3_column_text(queryStatement, 2))
+                
+                item.dateAdded =  String(cString: sqlite3_column_text(queryStatement, 3))
+                
+                item.title =  String(cString: sqlite3_column_text(queryStatement, 4))
+                
+                item.category =  String(cString: sqlite3_column_text(queryStatement, 5))
+                
+                item.expiryDate =  String(cString: sqlite3_column_text(queryStatement, 6))
+                
+                item.notificationTime =  String(cString: sqlite3_column_text(queryStatement, 7))
+                
+                item.groceryItemDescription =  String(cString: sqlite3_column_text(queryStatement, 8))
+                
+                item.brand =  String(cString: sqlite3_column_text(queryStatement, 9))
+                
+                let x = sqlite3_column_text(queryStatement, 10)
+                item.base64Img = x == nil ? nil : String(cString: x!)
+                
+                
+                data.append(item)
+                
+            }
+        } else {
+            print("SELECT statement could not be prepared")
+        }
+        sqlite3_finalize(queryStatement)
+        return data
+    }
+    
+    
+    
+    
+    //delete methods
+    
+    static func deleteGroceryItem(id: Int) -> Bool{
+        return deleteByID(id: id, tableName: Constants.groceryTable)
+    }
+    
+    static func deleteShoppingItem(id: Int) -> Bool{
+        return deleteByID(id: id, tableName: Constants.shoppingListTable)
+    }
+    
+    
+    private static func deleteByID(id:Int, tableName: String) -> Bool {
+        var success = false;
+        let query = "DELETE FROM \(tableName) WHERE Id = ?;"
+        var deleteStatement: OpaquePointer? = nil
+        if sqlite3_prepare_v2(db, query, -1, &deleteStatement, nil) == SQLITE_OK {
+            sqlite3_bind_int(deleteStatement, 1, Int32(id))
+            if sqlite3_step(deleteStatement) == SQLITE_DONE {
+                print("Successfully deleted row.")
+                success = true
+            } else {
+                print("Could not delete row.")
+            }
+        } else {
+            print("DELETE statement could not be prepared")
+        }
+        sqlite3_finalize(deleteStatement)
+        return success
     }
     
     
