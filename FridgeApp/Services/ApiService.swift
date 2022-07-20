@@ -9,12 +9,14 @@ import Foundation
 
 class ApiService {
     
-    ///[onSuccess] callback will be triggered if HTTP request and json data is parsed successfully
+    static var result : DataFetchResult = .invalid    ///[onSuccess] callback will be triggered if HTTP request and json data is parsed successfully
     ///
     ///[onError] callback will be triggered if any error occoures in the process
     
-    static func fetchData(barCode: String,  onSuccess: @escaping (GroceryItem)-> Void, onError: @escaping (String) -> Void) {
+    static func fetchData(barCode: String,  completion : @escaping (DataFetchResult) -> Void) {
         let url = Constants.apiUrl + barCode
+        
+
         
         //Configuring http request
         let request = NSMutableURLRequest(url: NSURL(string:
@@ -26,15 +28,13 @@ class ApiService {
         let session = URLSession.shared
         //creating http session session
         let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
-            if (error != nil) {
-                print(error ?? "Error!")
-                return onError("\(String(describing: error))")
+            if let err = error {
+                print(err)
+                result = .failure(error: err)
             }
             //continue if no error
             let httpResponse = response as? HTTPURLResponse
-            if(httpResponse==nil){
-                return onError("http response is nil")
-            }
+            
             if(httpResponse!.statusCode == 200){
                 do {
                     //decoding and parsing json data
@@ -46,25 +46,31 @@ class ApiService {
                         
                         //clearing preloaded cateory that comes from the api
                         item.category = ""
-                        return onSuccess(item)
+                        result = .success(data: item)
                     }
                     
                 }
                 catch let parseErr {
                     print("failed to decode json:", parseErr)
-                    return onError("Failed to parse fetched data")
-                }
+                    result = .failure(error: NSError(domain: "Json Parse Error", code: httpResponse?.statusCode ?? 0, userInfo: nil))                 }
             }
             else if(httpResponse?.statusCode == 429)
             {
                 //Http: Too many requests
-                return onError("Please slow down..")
-            }
+                result = .failure(error: NSError(domain: "Please slow down", code: httpResponse?.statusCode ?? 0, userInfo: nil))            }
             print(httpResponse!.statusCode)
-            return onError("No product found for the given barcode")
+            result = .failure(error: NSError(domain: "No item found", code: httpResponse?.statusCode ?? 0, userInfo: nil))
+            completion(result)
             
         })
         //executing session
         dataTask.resume()
+        
     }
+}
+
+enum DataFetchResult {
+    case invalid
+    case success(data: GroceryItem)
+    case failure(error: Error)
 }
