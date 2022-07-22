@@ -20,6 +20,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="dKE-9f-35y" kind="relationship" relationship="viewControllers" id="CxG-aX-dXV"/>
+                        <segue destination="7zg-pe-jly" kind="relationship" relationship="viewControllers" id="VpB-te-OPb"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="enr-by-wyb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -34,12 +35,34 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oaO-6J-Ilp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="928.98550724637687" y="88.392857142857139"/>
+            <point key="canvasLocation" x="615" y="88"/>
+        </scene>
+        <!--Barcode Scanner View Controller-->
+        <scene sceneID="UnX-cA-Vgu">
+            <objects>
+                <viewController id="S1u-sK-9Mw" customClass="BarcodeScannerViewController" customModule="FridgeApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aFZ-QQ-htd">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="a5I-8k-tpZ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="EBo-Im-lkB">
+                        <barButtonItem key="rightBarButtonItem" title="Add item" id="yLa-TH-5i6">
+                            <connections>
+                                <segue destination="yja-w0-6RU" kind="show" id="fju-04-5Ej"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hIA-MQ-vJY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1750.7246376811595" y="462.72321428571428"/>
         </scene>
         <!--Item-->
         <scene sceneID="yZ9-2z-VzB">
             <objects>
-                <viewController id="bNz-oF-kj8" sceneMemberID="viewController">
+                <viewController id="bNz-oF-kj8" customClass="FetchProductViewController" customModule="FridgeApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Z4J-4r-ryV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -47,13 +70,77 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="IpF-Z0-cKG"/>
+                    <navigationItem key="navigationItem" id="1rA-yi-uSo"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a2w-Oi-SGq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1871.0144927536232" y="542.41071428571422"/>
+            <point key="canvasLocation" x="2586" y="463"/>
+        </scene>
+        <!--Scanner-->
+        <scene sceneID="cuS-2D-iEX">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7zg-pe-jly" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Scanner" image="barcode" catalog="system" id="szF-p9-6Zy"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="RYC-UR-yzX">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="S1u-sK-9Mw" kind="relationship" relationship="rootViewController" id="5ox-o9-adx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fTX-6y-JiA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="840.57971014492762" y="462.72321428571428"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="Zok-wV-KSt">
+            <objects>
+                <viewController id="yja-w0-6RU" customClass="AddProductViewController" customModule="FridgeApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aha-vw-O9E">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="tKS-lB-gS4">
+                                <rect key="frame" x="159" y="412" width="97" height="72"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="loT-5U-QPo">
+                                        <rect key="frame" x="0.0" y="0.0" width="97" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="97" id="YoF-8v-IV9"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R9n-xZ-yOj">
+                                        <rect key="frame" x="29" y="42" width="39" height="30"/>
+                                        <state key="normal" title="Fetch"/>
+                                        <connections>
+                                            <segue destination="bNz-oF-kj8" kind="show" id="mpY-Yo-eDE"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="a1b-UV-awP"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="tKS-lB-gS4" firstAttribute="centerY" secondItem="a1b-UV-awP" secondAttribute="centerY" id="08U-XH-SPn"/>
+                            <constraint firstItem="tKS-lB-gS4" firstAttribute="centerX" secondItem="a1b-UV-awP" secondAttribute="centerX" id="vWw-TX-H8l"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="DtK-Fc-siL"/>
+                    <navigationItem key="navigationItem" id="xuf-nW-waI"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gnX-ex-LoZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1751" y="1151"/>
         </scene>
     </scenes>
     <resources>
+        <image name="barcode" catalog="system" width="128" height="93"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
