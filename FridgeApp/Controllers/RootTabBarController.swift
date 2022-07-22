@@ -8,23 +8,13 @@
 import UIKit
 
 class RootTabBarController: UITabBarController {
-    
-    func OnSuccess(item: GroceryItem)-> Void
-    {
-    
-    }
-    
-    func onError(err: String)-> Void
-    {
-    
-    }
-    
-
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view.
         
-        ApiService.fetchData(barCode: "06564546", onSuccess: OnSuccess, onError: onError);
+		ApiService.fetchData(barCode: "06564546", completion: { result in
+			
+		});
     }
 
 	override var shouldAutorotate: Bool {

@@ -7,9 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5D0403EE28875E0E00803AE7 /* ToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0403ED28875E0E00803AE7 /* ToDoViewController.swift */; };
 		801753F62880A9E300414078 /* AddProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801753F52880A9E300414078 /* AddProductViewController.swift */; };
-		801753F92880AA4C00414078 /* ManuallyAddProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801753F82880AA4C00414078 /* ManuallyAddProductViewController.swift */; };
 		805BD19D287B44CA00209326 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805BD19C287B44CA00209326 /* AppDelegate.swift */; };
 		805BD19F287B44CA00209326 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805BD19E287B44CA00209326 /* SceneDelegate.swift */; };
 		805BD1A1287B44CA00209326 /* RootTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805BD1A0287B44CA00209326 /* RootTabBarController.swift */; };
@@ -20,6 +18,8 @@
 		805BD1B8287B45AA00209326 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805BD1B7287B45AA00209326 /* Product.swift */; };
 		805BD1D5287DF10F00209326 /* ProductList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 805BD1D3287DF10F00209326 /* ProductList.storyboard */; };
 		805BD1DA2880980500209326 /* BarcodeScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805BD1D92880980500209326 /* BarcodeScannerViewController.swift */; };
+		80B25E88288B1365003C01D3 /* ProductList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B25E87288B1365003C01D3 /* ProductList.swift */; };
+		80B25E8D288B1893003C01D3 /* FetchProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B25E8C288B1893003C01D3 /* FetchProductViewController.swift */; };
 		9897326B2884528100650C2E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9897326A2884528100650C2E /* Constants.swift */; };
 		9897326F28845BE300650C2E /* GroceryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9897326E28845BE300650C2E /* GroceryItem.swift */; };
 		9897327228845E1800650C2E /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9897327128845E1800650C2E /* ApiService.swift */; };
@@ -30,9 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5D0403ED28875E0E00803AE7 /* ToDoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoViewController.swift; sourceTree = "<group>"; };
 		801753F52880A9E300414078 /* AddProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductViewController.swift; sourceTree = "<group>"; };
-		801753F82880AA4C00414078 /* ManuallyAddProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManuallyAddProductViewController.swift; sourceTree = "<group>"; };
 		805BD199287B44CA00209326 /* FridgeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FridgeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		805BD19C287B44CA00209326 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		805BD19E287B44CA00209326 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +43,8 @@
 		805BD1B7287B45AA00209326 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		805BD1D4287DF10F00209326 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ProductList.storyboard; sourceTree = "<group>"; };
 		805BD1D92880980500209326 /* BarcodeScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerViewController.swift; sourceTree = "<group>"; };
+		80B25E87288B1365003C01D3 /* ProductList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductList.swift; sourceTree = "<group>"; };
+		80B25E8C288B1893003C01D3 /* FetchProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchProductViewController.swift; sourceTree = "<group>"; };
 		9897326A2884528100650C2E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9897326E28845BE300650C2E /* GroceryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryItem.swift; sourceTree = "<group>"; };
 		9897327128845E1800650C2E /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
@@ -106,8 +106,7 @@
 				805BD1B4287B458800209326 /* ProductListViewController.swift */,
 				805BD1D92880980500209326 /* BarcodeScannerViewController.swift */,
 				801753F52880A9E300414078 /* AddProductViewController.swift */,
-				801753F82880AA4C00414078 /* ManuallyAddProductViewController.swift */,
-				5D0403ED28875E0E00803AE7 /* ToDoViewController.swift */,
+				80B25E8C288B1893003C01D3 /* FetchProductViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -118,6 +117,7 @@
 				805BD1B7287B45AA00209326 /* Product.swift */,
 				9897326E28845BE300650C2E /* GroceryItem.swift */,
 				98DB296C2884BE0400E629F6 /* ShoppingItem.swift */,
+				80B25E87288B1365003C01D3 /* ProductList.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -217,15 +217,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5D0403EE28875E0E00803AE7 /* ToDoViewController.swift in Sources */,
 				805BD1A1287B44CA00209326 /* RootTabBarController.swift in Sources */,
 				9897326B2884528100650C2E /* Constants.swift in Sources */,
-				801753F92880AA4C00414078 /* ManuallyAddProductViewController.swift in Sources */,
+				80B25E8D288B1893003C01D3 /* FetchProductViewController.swift in Sources */,
 				805BD19D287B44CA00209326 /* AppDelegate.swift in Sources */,
 				98DB296D2884BE0400E629F6 /* ShoppingItem.swift in Sources */,
 				805BD1B8287B45AA00209326 /* Product.swift in Sources */,
 				805BD1B5287B458800209326 /* ProductListViewController.swift in Sources */,
 				9897327228845E1800650C2E /* ApiService.swift in Sources */,
+				80B25E88288B1365003C01D3 /* ProductList.swift in Sources */,
 				805BD1DA2880980500209326 /* BarcodeScannerViewController.swift in Sources */,
 				9897327A28847F8400650C2E /* DatabaseService.swift in Sources */,
 				98DB29692884B60800E629F6 /* Converter.swift in Sources */,
@@ -387,12 +387,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2D2H72KMHC;
 				INFOPLIST_FILE = FridgeApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_CODE_SIGN_FLAGS = "--generate-entitlement-der";
 				PRODUCT_BUNDLE_IDENTIFIER = com.conestoga.FridgeApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -406,12 +408,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2D2H72KMHC;
 				INFOPLIST_FILE = FridgeApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_CODE_SIGN_FLAGS = "--generate-entitlement-der";
 				PRODUCT_BUNDLE_IDENTIFIER = com.conestoga.FridgeApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
