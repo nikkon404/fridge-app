@@ -22,9 +22,8 @@ class RootTabBarController: UITabBarController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		// Do any additional setup after loading the view.
-        
-        ApiService.fetchData(barCode: "06564546", onSuccess: OnSuccess, onError: onError);
+		// Do any additional setup after loading the view.        
+       
     }
 
 	override var shouldAutorotate: Bool {
