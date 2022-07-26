@@ -11,14 +11,15 @@ import AVFoundation
 class BarcodeScannerViewController: UIViewController {
 	var captureSession: AVCaptureSession!
 	var previewLayer: AVCaptureVideoPreviewLayer!
-	//var delegate : ScannerViewDelegate? = nil
+	var delegate : ScannerViewDelegate? = nil
+	var result : ScanningResult = .invalid
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
 		view.backgroundColor = UIColor.black
 		captureSession = AVCaptureSession()
-		
+		delegate = self
 		guard let videoCaptureDevice = AVCaptureDevice.default(for: .video) else { return }
 		let videoInput: AVCaptureDeviceInput
 		
@@ -31,7 +32,8 @@ class BarcodeScannerViewController: UIViewController {
 		if (captureSession.canAddInput(videoInput)) {
 			captureSession.addInput(videoInput)
 		} else {
-			//failed()
+			result = .failure
+			delegate?.didComplete(with: result)
 			return
 		}
 		
@@ -43,7 +45,8 @@ class BarcodeScannerViewController: UIViewController {
 			metadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
 			metadataOutput.metadataObjectTypes = [.ean8, .ean13, .pdf417]
 		} else {
-			//failed()
+			result = .failure
+			delegate?.didComplete(with: result)
 			return
 		}
 		
@@ -80,9 +83,22 @@ extension BarcodeScannerViewController : AVCaptureMetadataOutputObjectsDelegate 
 			guard let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject else { return }
 			guard let stringValue = readableObject.stringValue else { return }
 			AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
-			//found(code: stringValue)
+			result = .success(data: Double(stringValue) ?? 0)
+			delegate?.didComplete(with: result)
 		}
 		
 		dismiss(animated: true)
+	}
+}
+
+extension BarcodeScannerViewController : ScannerViewDelegate {
+	func didComplete(with result:ScanningResult) {
+		switch result {
+		case .success(let data):
+			print("\(data)")
+			break
+		default:
+			break
+		}
 	}
 }

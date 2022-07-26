@@ -20,6 +20,7 @@
 		805BD1DA2880980500209326 /* BarcodeScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805BD1D92880980500209326 /* BarcodeScannerViewController.swift */; };
 		80B25E8D288B1893003C01D3 /* FetchProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B25E8C288B1893003C01D3 /* FetchProductViewController.swift */; };
 		80B25E9E288B1E7C003C01D3 /* ProductList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B25E9D288B1E7C003C01D3 /* ProductList.swift */; };
+		80B25EA1288F87D6003C01D3 /* ScannerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B25EA0288F87D6003C01D3 /* ScannerViewDelegate.swift */; };
 		9897326B2884528100650C2E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9897326A2884528100650C2E /* Constants.swift */; };
 		9897326F28845BE300650C2E /* GroceryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9897326E28845BE300650C2E /* GroceryItem.swift */; };
 		9897327228845E1800650C2E /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9897327128845E1800650C2E /* ApiService.swift */; };
@@ -46,6 +47,7 @@
 		805BD1D92880980500209326 /* BarcodeScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerViewController.swift; sourceTree = "<group>"; };
 		80B25E8C288B1893003C01D3 /* FetchProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchProductViewController.swift; sourceTree = "<group>"; };
 		80B25E9D288B1E7C003C01D3 /* ProductList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductList.swift; sourceTree = "<group>"; };
+		80B25EA0288F87D6003C01D3 /* ScannerViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewDelegate.swift; sourceTree = "<group>"; };
 		9897326A2884528100650C2E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9897326E28845BE300650C2E /* GroceryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryItem.swift; sourceTree = "<group>"; };
 		9897327128845E1800650C2E /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				805BD1D92880980500209326 /* BarcodeScannerViewController.swift */,
 				801753F52880A9E300414078 /* AddProductViewController.swift */,
 				80B25E8C288B1893003C01D3 /* FetchProductViewController.swift */,
+				80B25EA0288F87D6003C01D3 /* ScannerViewDelegate.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -224,6 +227,7 @@
 				9897326B2884528100650C2E /* Constants.swift in Sources */,
 				80B25E8D288B1893003C01D3 /* FetchProductViewController.swift in Sources */,
 				805BD19D287B44CA00209326 /* AppDelegate.swift in Sources */,
+				80B25EA1288F87D6003C01D3 /* ScannerViewDelegate.swift in Sources */,
 				98DB296D2884BE0400E629F6 /* ShoppingItem.swift in Sources */,
 				805BD1B8287B45AA00209326 /* Product.swift in Sources */,
 				98CC2F98288AF1F800371E26 /* NotificationItem.swift in Sources */,
