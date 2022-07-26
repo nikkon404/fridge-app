@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D7BE935288E74C200E60CF7 /* ToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7BE934288E74C200E60CF7 /* ToDoViewController.swift */; };
 		801753F62880A9E300414078 /* AddProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801753F52880A9E300414078 /* AddProductViewController.swift */; };
 		805BD19D287B44CA00209326 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805BD19C287B44CA00209326 /* AppDelegate.swift */; };
 		805BD19F287B44CA00209326 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805BD19E287B44CA00209326 /* SceneDelegate.swift */; };
@@ -32,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5D7BE934288E74C200E60CF7 /* ToDoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoViewController.swift; sourceTree = "<group>"; };
 		801753F52880A9E300414078 /* AddProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductViewController.swift; sourceTree = "<group>"; };
 		805BD199287B44CA00209326 /* FridgeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FridgeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		805BD19C287B44CA00209326 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				801753F52880A9E300414078 /* AddProductViewController.swift */,
 				80B25E8C288B1893003C01D3 /* FetchProductViewController.swift */,
 				80B25EA0288F87D6003C01D3 /* ScannerViewDelegate.swift */,
+				5D7BE934288E74C200E60CF7 /* ToDoViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 				98DB29692884B60800E629F6 /* Converter.swift in Sources */,
 				805BD19F287B44CA00209326 /* SceneDelegate.swift in Sources */,
 				9897326F28845BE300650C2E /* GroceryItem.swift in Sources */,
+				5D7BE935288E74C200E60CF7 /* ToDoViewController.swift in Sources */,
 				801753F62880A9E300414078 /* AddProductViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
