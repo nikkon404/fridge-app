@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D2062052891218900277017 /* FridgeApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5D2062032891218900277017 /* FridgeApp.xcdatamodeld */; };
+		5D2062092891232A00277017 /* ToDoListItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2062072891232A00277017 /* ToDoListItem+CoreDataClass.swift */; };
+		5D20620A2891232A00277017 /* ToDoListItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2062082891232A00277017 /* ToDoListItem+CoreDataProperties.swift */; };
 		5D7BE935288E74C200E60CF7 /* ToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7BE934288E74C200E60CF7 /* ToDoViewController.swift */; };
 		801753F62880A9E300414078 /* AddProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801753F52880A9E300414078 /* AddProductViewController.swift */; };
 		805BD19D287B44CA00209326 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805BD19C287B44CA00209326 /* AppDelegate.swift */; };
@@ -33,6 +36,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5D2062042891218900277017 /* FridgeApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FridgeApp.xcdatamodel; sourceTree = "<group>"; };
+		5D2062072891232A00277017 /* ToDoListItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToDoListItem+CoreDataClass.swift"; sourceTree = "<group>"; };
+		5D2062082891232A00277017 /* ToDoListItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToDoListItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		5D7BE934288E74C200E60CF7 /* ToDoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoViewController.swift; sourceTree = "<group>"; };
 		801753F52880A9E300414078 /* AddProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductViewController.swift; sourceTree = "<group>"; };
 		805BD199287B44CA00209326 /* FridgeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FridgeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,6 +77,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5D20620C2891235500277017 /* ToDoListItem */ = {
+			isa = PBXGroup;
+			children = (
+				5D2062072891232A00277017 /* ToDoListItem+CoreDataClass.swift */,
+				5D2062082891232A00277017 /* ToDoListItem+CoreDataProperties.swift */,
+			);
+			path = ToDoListItem;
+			sourceTree = "<group>";
+		};
 		805BD190287B44CA00209326 = {
 			isa = PBXGroup;
 			children = (
@@ -100,6 +115,7 @@
 				805BD1D3287DF10F00209326 /* ProductList.storyboard */,
 				805BD1A7287B44CB00209326 /* LaunchScreen.storyboard */,
 				805BD1A5287B44CB00209326 /* Assets.xcassets */,
+				5D2062032891218900277017 /* FridgeApp.xcdatamodeld */,
 				805BD1AA287B44CB00209326 /* Info.plist */,
 			);
 			path = FridgeApp;
@@ -108,6 +124,7 @@
 		805BD1B2287B455400209326 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				5D20620C2891235500277017 /* ToDoListItem */,
 				805BD1A0287B44CA00209326 /* RootTabBarController.swift */,
 				805BD1B4287B458800209326 /* ProductListViewController.swift */,
 				805BD1D92880980500209326 /* BarcodeScannerViewController.swift */,
@@ -228,13 +245,16 @@
 			files = (
 				805BD1A1287B44CA00209326 /* RootTabBarController.swift in Sources */,
 				9897326B2884528100650C2E /* Constants.swift in Sources */,
+				5D2062052891218900277017 /* FridgeApp.xcdatamodeld in Sources */,
 				80B25E8D288B1893003C01D3 /* FetchProductViewController.swift in Sources */,
+				5D20620A2891232A00277017 /* ToDoListItem+CoreDataProperties.swift in Sources */,
 				805BD19D287B44CA00209326 /* AppDelegate.swift in Sources */,
 				80B25EA1288F87D6003C01D3 /* ScannerViewDelegate.swift in Sources */,
 				98DB296D2884BE0400E629F6 /* ShoppingItem.swift in Sources */,
 				805BD1B8287B45AA00209326 /* Product.swift in Sources */,
 				98CC2F98288AF1F800371E26 /* NotificationItem.swift in Sources */,
 				805BD1B5287B458800209326 /* ProductListViewController.swift in Sources */,
+				5D2062092891232A00277017 /* ToDoListItem+CoreDataClass.swift in Sources */,
 				9897327228845E1800650C2E /* ApiService.swift in Sources */,
 				80B25E9E288B1E7C003C01D3 /* ProductList.swift in Sources */,
 				805BD1DA2880980500209326 /* BarcodeScannerViewController.swift in Sources */,
@@ -476,6 +496,19 @@
 			productName = SQLite;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		5D2062032891218900277017 /* FridgeApp.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				5D2062042891218900277017 /* FridgeApp.xcdatamodel */,
+			);
+			currentVersion = 5D2062042891218900277017 /* FridgeApp.xcdatamodel */;
+			path = FridgeApp.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 805BD191287B44CA00209326 /* Project object */;
 }
