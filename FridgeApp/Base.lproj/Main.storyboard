@@ -105,7 +105,7 @@
         <!--Item-->
         <scene sceneID="yZ9-2z-VzB">
             <objects>
-                <viewController id="bNz-oF-kj8" customClass="FetchProductViewController" customModule="FridgeApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FetchDataVC" id="bNz-oF-kj8" customClass="FetchProductViewController" customModule="FridgeApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Z4J-4r-ryV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -161,7 +161,7 @@
                                         <rect key="frame" x="29" y="42" width="39" height="30"/>
                                         <state key="normal" title="Fetch"/>
                                         <connections>
-                                            <segue destination="bNz-oF-kj8" kind="show" id="mpY-Yo-eDE"/>
+                                            <segue destination="bNz-oF-kj8" kind="show" identifier="kFetchSegueID" id="mpY-Yo-eDE"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -176,10 +176,13 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="DtK-Fc-siL"/>
                     <navigationItem key="navigationItem" id="xuf-nW-waI"/>
+                    <connections>
+                        <outlet property="barcodeTextField" destination="loT-5U-QPo" id="ow6-dk-jhw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gnX-ex-LoZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3571.0144927536235" y="1149.7767857142856"/>
+            <point key="canvasLocation" x="4494" y="1197"/>
         </scene>
         <!--To Do-->
         <scene sceneID="piU-1J-5Av">

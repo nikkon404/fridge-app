@@ -8,11 +8,11 @@
 import UIKit
 
 class FetchProductViewController: UIViewController {
-	
+	public var barcodeStr : String = ""
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		ApiService.fetchData(barCode: "06564546", completion: { result in
+		ApiService.fetchData(barCode: barcodeStr, completion: { result in
 			
 		});
 	}
