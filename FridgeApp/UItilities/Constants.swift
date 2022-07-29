@@ -9,10 +9,12 @@ import Foundation
 
 ///This class hold all constants that will be used throughout the application
 class Constants{
-    
-    //"https://api.upcdatabase.org/product/068100046120?apikey=098f6bc22621d_demo_4de4e8326b4f6"
-    //    https://api.upcitemdb.com/prod/trial/lookup?upc=066721002297
        
+    // https://api.upcitemdb.com/prod/trial/lookup?upc=066721002297
+       
+    
+    
+    //test code 066721002297
     static let apiUrl = "https://api.upcitemdb.com/prod/trial/lookup?upc="
     static let apIKey = "098f6bc22621d_demo_4de4e8326b4f6"
     

@@ -16,7 +16,7 @@ struct GroceryItem : Codable {
     
     //variable that can be changed and updated
     var title,category,expiryDate, notificationTime: String?
-    var groceryItemDescription, brand: String?
+    var description, brand: String?
     var images: [String]?
     
     var  base64Img: String?

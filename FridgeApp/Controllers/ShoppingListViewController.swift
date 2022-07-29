@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ToDoViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ShoppingListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
 
     @IBOutlet weak var tableView: UITableView!

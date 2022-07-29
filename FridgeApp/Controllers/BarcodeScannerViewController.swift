@@ -43,6 +43,7 @@ class BarcodeScannerViewController: UIViewController {
 			captureSession.addOutput(metadataOutput)
 			
 			metadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
+            //types
 			metadataOutput.metadataObjectTypes = [.ean8, .ean13, .pdf417]
 		} else {
 			result = .failure
@@ -95,12 +96,14 @@ extension BarcodeScannerViewController : ScannerViewDelegate {
     func didComplete(with result:ScanningResult) {
         switch result {
         case .success(let data):
+            
             if let vc = storyboard?.instantiateViewController(withIdentifier: "FetchProductVC") as? FetchProductViewController {
                 vc.barcodeStr = "\(data)"
                 self.navigationController?.pushViewController(vc, animated: true)
             }
             break
         default:
+            //manual add
             if let vc = storyboard?.instantiateViewController(withIdentifier: "AddProductVC") as? AddProductViewController {
                 self.navigationController?.pushViewController(vc, animated: true)
             }

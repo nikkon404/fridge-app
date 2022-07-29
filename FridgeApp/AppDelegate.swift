@@ -49,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        var x = GroceryItem(id: nil, ean: "060eam", upc: "0888upc", dateAdded: "2022-02-11", title: "Title", category: Constants.categories.first!, expiryDate: "2022-06-06",
 //                            notificationTime: "2022-08-08",
 //
-//                            groceryItemDescription: "Some desc", brand: "Brand", images: ["https://www.centurypublishing.com/wp-content/uploads/2013/02/Low-Resolution-Image.jpg"])
+//                            description: "Some desc", brand: "Brand", images: ["https://www.centurypublishing.com/wp-content/uploads/2013/02/Low-Resolution-Image.jpg"])
         
 //        var data = DatabaseService.getAllGroceryItems()n
 //        DatabaseService.insertGrocery(item:&x)

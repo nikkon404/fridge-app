@@ -3,14 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		5D2062052891218900277017 /* FridgeApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5D2062032891218900277017 /* FridgeApp.xcdatamodeld */; };
 		5D2062092891232A00277017 /* ToDoListItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2062072891232A00277017 /* ToDoListItem+CoreDataClass.swift */; };
 		5D20620A2891232A00277017 /* ToDoListItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2062082891232A00277017 /* ToDoListItem+CoreDataProperties.swift */; };
-		5D7BE935288E74C200E60CF7 /* ToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7BE934288E74C200E60CF7 /* ToDoViewController.swift */; };
+		5D7BE935288E74C200E60CF7 /* ShoppingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7BE934288E74C200E60CF7 /* ShoppingListViewController.swift */; };
 		801753F62880A9E300414078 /* AddProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801753F52880A9E300414078 /* AddProductViewController.swift */; };
 		805BD19D287B44CA00209326 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805BD19C287B44CA00209326 /* AppDelegate.swift */; };
 		805BD19F287B44CA00209326 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805BD19E287B44CA00209326 /* SceneDelegate.swift */; };
@@ -24,6 +24,7 @@
 		80B25E8D288B1893003C01D3 /* FetchProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B25E8C288B1893003C01D3 /* FetchProductViewController.swift */; };
 		80B25E9E288B1E7C003C01D3 /* ProductList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B25E9D288B1E7C003C01D3 /* ProductList.swift */; };
 		80B25EA1288F87D6003C01D3 /* ScannerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B25EA0288F87D6003C01D3 /* ScannerViewDelegate.swift */; };
+		9874CCD728942CCE00B15913 /* AddItemFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9874CCD628942CCE00B15913 /* AddItemFormVC.swift */; };
 		9897326B2884528100650C2E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9897326A2884528100650C2E /* Constants.swift */; };
 		9897326F28845BE300650C2E /* GroceryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9897326E28845BE300650C2E /* GroceryItem.swift */; };
 		9897327228845E1800650C2E /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9897327128845E1800650C2E /* ApiService.swift */; };
@@ -38,7 +39,7 @@
 		5D2062042891218900277017 /* FridgeApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FridgeApp.xcdatamodel; sourceTree = "<group>"; };
 		5D2062072891232A00277017 /* ToDoListItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToDoListItem+CoreDataClass.swift"; sourceTree = "<group>"; };
 		5D2062082891232A00277017 /* ToDoListItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToDoListItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		5D7BE934288E74C200E60CF7 /* ToDoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoViewController.swift; sourceTree = "<group>"; };
+		5D7BE934288E74C200E60CF7 /* ShoppingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListViewController.swift; sourceTree = "<group>"; };
 		801753F52880A9E300414078 /* AddProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductViewController.swift; sourceTree = "<group>"; };
 		805BD199287B44CA00209326 /* FridgeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FridgeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		805BD19C287B44CA00209326 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -54,6 +55,7 @@
 		80B25E8C288B1893003C01D3 /* FetchProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchProductViewController.swift; sourceTree = "<group>"; };
 		80B25E9D288B1E7C003C01D3 /* ProductList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductList.swift; sourceTree = "<group>"; };
 		80B25EA0288F87D6003C01D3 /* ScannerViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewDelegate.swift; sourceTree = "<group>"; };
+		9874CCD628942CCE00B15913 /* AddItemFormVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemFormVC.swift; sourceTree = "<group>"; };
 		9897326A2884528100650C2E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9897326E28845BE300650C2E /* GroceryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryItem.swift; sourceTree = "<group>"; };
 		9897327128845E1800650C2E /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
@@ -123,12 +125,13 @@
 			children = (
 				5D20620C2891235500277017 /* ToDoListItem */,
 				805BD1A0287B44CA00209326 /* RootTabBarController.swift */,
+				9874CCD628942CCE00B15913 /* AddItemFormVC.swift */,
 				805BD1B4287B458800209326 /* ProductListViewController.swift */,
 				805BD1D92880980500209326 /* BarcodeScannerViewController.swift */,
 				801753F52880A9E300414078 /* AddProductViewController.swift */,
 				80B25E8C288B1893003C01D3 /* FetchProductViewController.swift */,
 				80B25EA0288F87D6003C01D3 /* ScannerViewDelegate.swift */,
-				5D7BE934288E74C200E60CF7 /* ToDoViewController.swift */,
+				5D7BE934288E74C200E60CF7 /* ShoppingListViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -201,7 +204,7 @@
 				};
 			};
 			buildConfigurationList = 805BD194287B44CA00209326 /* Build configuration list for PBXProject "FridgeApp" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -240,6 +243,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				805BD1A1287B44CA00209326 /* RootTabBarController.swift in Sources */,
+				9874CCD728942CCE00B15913 /* AddItemFormVC.swift in Sources */,
 				9897326B2884528100650C2E /* Constants.swift in Sources */,
 				5D2062052891218900277017 /* FridgeApp.xcdatamodeld in Sources */,
 				80B25E8D288B1893003C01D3 /* FetchProductViewController.swift in Sources */,
@@ -258,7 +262,7 @@
 				98DB29692884B60800E629F6 /* Converter.swift in Sources */,
 				805BD19F287B44CA00209326 /* SceneDelegate.swift in Sources */,
 				9897326F28845BE300650C2E /* GroceryItem.swift in Sources */,
-				5D7BE935288E74C200E60CF7 /* ToDoViewController.swift in Sources */,
+				5D7BE935288E74C200E60CF7 /* ShoppingListViewController.swift in Sources */,
 				801753F62880A9E300414078 /* AddProductViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -409,7 +413,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2D2H72KMHC;
 				INFOPLIST_FILE = FridgeApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -430,7 +434,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2D2H72KMHC;
 				INFOPLIST_FILE = FridgeApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

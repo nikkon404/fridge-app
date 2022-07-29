@@ -45,7 +45,7 @@ title TEXT,
 category TEXT,
 expiryDate TEXT,
 notificationTime TEXT,
-groceryItemDescription TEXT,
+description TEXT,
 brand TEXT,
 img, TEXT);
 """
@@ -83,7 +83,7 @@ isChecked INTEGER);
     ///Method to inset grocerty item to the database table
     static func insertGrocery(item: inout GroceryItem) -> Bool{
         var success = false
-        let query = "INSERT INTO \(Constants.groceryTable) (ean, upc, dateAdded, title, category, expiryDate, notificationTime, groceryItemDescription, brand, img) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);"
+        let query = "INSERT INTO \(Constants.groceryTable) (ean, upc, dateAdded, title, category, expiryDate, notificationTime, description, brand, img) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);"
         
         var statement : OpaquePointer? = nil
         
@@ -100,7 +100,7 @@ isChecked INTEGER);
             sqlite3_bind_text(statement, 5, (item.category! as NSString).utf8String, -1, nil)
             sqlite3_bind_text(statement, 6, (item.expiryDate! as NSString).utf8String, -1, nil)
             sqlite3_bind_text(statement, 7, (item.notificationTime! as NSString).utf8String, -1, nil)
-            sqlite3_bind_text(statement, 8, ((item.groceryItemDescription ?? "" )as NSString).utf8String, -1, nil)
+            sqlite3_bind_text(statement, 8, ((item.description ?? "" )as NSString).utf8String, -1, nil)
             sqlite3_bind_text(statement, 9, ((item.brand ?? "") as NSString).utf8String, -1, nil)
             sqlite3_bind_text(statement, 10, ((item.getRenderableImage() ?? "") as NSString).utf8String, -1, nil)
             
@@ -123,7 +123,7 @@ isChecked INTEGER);
         var data : [GroceryItem] = []
         if sqlite3_prepare_v2(db, query, -1, &queryStatement, nil) == SQLITE_OK {
             while sqlite3_step(queryStatement) == SQLITE_ROW {
-                //id, ean, upc, dateAdded, title, category, expiryDate, notificationTime, groceryItemDescription, brand, img
+                //id, ean, upc, dateAdded, title, category, expiryDate, notificationTime, description, brand, img
                 var item = GroceryItem()
                 item.id = Int(sqlite3_column_int(queryStatement, 0))
                 
@@ -141,7 +141,7 @@ isChecked INTEGER);
                 
                 item.notificationTime =  String(cString: sqlite3_column_text(queryStatement, 7))
                 
-                item.groceryItemDescription =  String(cString: sqlite3_column_text(queryStatement, 8))
+                item.description =  String(cString: sqlite3_column_text(queryStatement, 8))
                 
                 item.brand =  String(cString: sqlite3_column_text(queryStatement, 9))
                 
