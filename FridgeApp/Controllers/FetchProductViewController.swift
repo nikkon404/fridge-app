@@ -8,24 +8,26 @@
 import UIKit
 
 class FetchProductViewController: UIViewController {
-	
-	override func viewDidLoad() {
-		super.viewDidLoad()
-		
-		ApiService.fetchData(barCode: "06564546", completion: { result in
-			
-		});
-	}
-	
-	
-	/*
-	// MARK: - Navigation
-	
-	// In a storyboard-based application, you will often want to do a little preparation before navigation
-	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-	// Get the new view controller using segue.destination.
-	// Pass the selected object to the new view controller.
-	}
-	*/
+    
+    
+    @IBOutlet weak var nameLabel: UILabel!
+    
+    public var barcodeStr :
+        String = ""
+        override func viewDidLoad() {
+            super.viewDidLoad()
+            
+            ApiService.fetchData(barCode: barcodeStr, completion: { result in
+                switch (result) {
+                case .success(let data):
+                    DispatchQueue.main.async { [self] in
+                        nameLabel.text = data.title
+                    }
+                    break
+                default:
+                    break
+                }
+            });
+        }
 	
 }

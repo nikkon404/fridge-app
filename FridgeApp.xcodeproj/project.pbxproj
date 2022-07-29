@@ -20,7 +20,6 @@
 		805BD1A9287B44CB00209326 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 805BD1A7287B44CB00209326 /* LaunchScreen.storyboard */; };
 		805BD1B5287B458800209326 /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805BD1B4287B458800209326 /* ProductListViewController.swift */; };
 		805BD1B8287B45AA00209326 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805BD1B7287B45AA00209326 /* Product.swift */; };
-		805BD1D5287DF10F00209326 /* ProductList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 805BD1D3287DF10F00209326 /* ProductList.storyboard */; };
 		805BD1DA2880980500209326 /* BarcodeScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805BD1D92880980500209326 /* BarcodeScannerViewController.swift */; };
 		80B25E8D288B1893003C01D3 /* FetchProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B25E8C288B1893003C01D3 /* FetchProductViewController.swift */; };
 		80B25E9E288B1E7C003C01D3 /* ProductList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B25E9D288B1E7C003C01D3 /* ProductList.swift */; };
@@ -51,7 +50,6 @@
 		805BD1AA287B44CB00209326 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		805BD1B4287B458800209326 /* ProductListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
 		805BD1B7287B45AA00209326 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
-		805BD1D4287DF10F00209326 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ProductList.storyboard; sourceTree = "<group>"; };
 		805BD1D92880980500209326 /* BarcodeScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerViewController.swift; sourceTree = "<group>"; };
 		80B25E8C288B1893003C01D3 /* FetchProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchProductViewController.swift; sourceTree = "<group>"; };
 		80B25E9D288B1E7C003C01D3 /* ProductList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductList.swift; sourceTree = "<group>"; };
@@ -112,7 +110,6 @@
 				805BD1B2287B455400209326 /* Controllers */,
 				98973274288477FC00650C2E /* UItilities */,
 				805BD1A2287B44CA00209326 /* Main.storyboard */,
-				805BD1D3287DF10F00209326 /* ProductList.storyboard */,
 				805BD1A7287B44CB00209326 /* LaunchScreen.storyboard */,
 				805BD1A5287B44CB00209326 /* Assets.xcassets */,
 				5D2062032891218900277017 /* FridgeApp.xcdatamodeld */,
@@ -231,7 +228,6 @@
 			files = (
 				805BD1A9287B44CB00209326 /* LaunchScreen.storyboard in Resources */,
 				805BD1A6287B44CB00209326 /* Assets.xcassets in Resources */,
-				805BD1D5287DF10F00209326 /* ProductList.storyboard in Resources */,
 				805BD1A4287B44CA00209326 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,14 +280,6 @@
 				805BD1A8287B44CB00209326 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		805BD1D3287DF10F00209326 /* ProductList.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				805BD1D4287DF10F00209326 /* Base */,
-			);
-			name = ProductList.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
