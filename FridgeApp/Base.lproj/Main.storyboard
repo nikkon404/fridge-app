@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--To Do-->
+        <!--Shopping-->
         <scene sceneID="geS-7W-3OX">
             <objects>
                 <viewController storyboardIdentifier="ToDoViewController" id="Iw2-BS-vig" customClass="ToDoViewController" customModule="FridgeApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -40,7 +40,7 @@
                             <constraint firstItem="SaN-Nw-hRq" firstAttribute="trailing" secondItem="H0P-mY-m0s" secondAttribute="trailing" id="v3d-1P-HNy"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="To Do" id="DLp-8I-l9S"/>
+                    <navigationItem key="navigationItem" title="Shopping" id="DLp-8I-l9S"/>
                     <connections>
                         <outlet property="tableView" destination="H0P-mY-m0s" id="O2c-AM-Vfg"/>
                     </connections>
@@ -61,8 +61,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="QhW-EJ-ofo" kind="relationship" relationship="viewControllers" id="i8t-c1-29g"/>
                         <segue destination="dKE-9f-35y" kind="relationship" relationship="viewControllers" id="CxG-aX-dXV"/>
+                        <segue destination="QhW-EJ-ofo" kind="relationship" relationship="viewControllers" id="i8t-c1-29g"/>
                         <segue destination="7zg-pe-jly" kind="relationship" relationship="viewControllers" id="VpB-te-OPb"/>
                     </connections>
                 </tabBarController>
@@ -181,11 +181,11 @@
             </objects>
             <point key="canvasLocation" x="3571.0144927536235" y="1149.7767857142856"/>
         </scene>
-        <!--To Do-->
+        <!--Shopping-->
         <scene sceneID="piU-1J-5Av">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QhW-EJ-ofo" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="To Do" image="list.bullet.rectangle" catalog="system" id="kPa-zD-i8V"/>
+                <navigationController title="Shopping" automaticallyAdjustsScrollViewInsets="NO" id="QhW-EJ-ofo" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Shopping" image="cart" catalog="system" id="kPa-zD-i8V"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="9x6-fg-Zbp">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -203,7 +203,7 @@
     </scenes>
     <resources>
         <image name="barcode" catalog="system" width="128" height="93"/>
-        <image name="list.bullet.rectangle" catalog="system" width="128" height="93"/>
+        <image name="cart" catalog="system" width="128" height="102"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
