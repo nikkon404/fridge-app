@@ -95,15 +95,30 @@
         <!--Item-->
         <scene sceneID="yZ9-2z-VzB">
             <objects>
-                <viewController storyboardIdentifier="FetchDataVC" id="bNz-oF-kj8" customClass="FetchProductViewController" customModule="FridgeApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FetchProductVC" id="bNz-oF-kj8" customClass="FetchProductViewController" customModule="FridgeApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Z4J-4r-ryV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wnw-nC-49D">
+                                <rect key="frame" x="186" y="437.5" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="RRH-od-iLc"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="wnw-nC-49D" firstAttribute="centerX" secondItem="Z4J-4r-ryV" secondAttribute="centerX" id="aZ2-Kn-6UE"/>
+                            <constraint firstItem="wnw-nC-49D" firstAttribute="centerY" secondItem="Z4J-4r-ryV" secondAttribute="centerY" id="nVi-nf-Mwj"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="IpF-Z0-cKG"/>
                     <navigationItem key="navigationItem" id="1rA-yi-uSo"/>
+                    <connections>
+                        <outlet property="nameLabel" destination="wnw-nC-49D" id="IdI-kX-OOa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a2w-Oi-SGq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -131,7 +146,7 @@
         <!--Item-->
         <scene sceneID="Zok-wV-KSt">
             <objects>
-                <viewController id="yja-w0-6RU" customClass="AddProductViewController" customModule="FridgeApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddProductVC" id="yja-w0-6RU" customClass="AddProductViewController" customModule="FridgeApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aha-vw-O9E">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

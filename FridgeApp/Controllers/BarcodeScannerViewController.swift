@@ -7,7 +7,7 @@
 
 import UIKit
 import AVFoundation
-
+	
 class BarcodeScannerViewController: UIViewController {
 	var captureSession: AVCaptureSession!
 	var previewLayer: AVCaptureVideoPreviewLayer!
@@ -92,13 +92,19 @@ extension BarcodeScannerViewController : AVCaptureMetadataOutputObjectsDelegate 
 }
 
 extension BarcodeScannerViewController : ScannerViewDelegate {
-	func didComplete(with result:ScanningResult) {
-		switch result {
-		case .success(let data):
-			print("\(data)")
-			break
-		default:
-			break
-		}
-	}
+    func didComplete(with result:ScanningResult) {
+        switch result {
+        case .success(let data):
+            if let vc = storyboard?.instantiateViewController(withIdentifier: "FetchProductVC") as? FetchProductViewController {
+                vc.barcodeStr = "\(data)"
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+            break
+        default:
+            if let vc = storyboard?.instantiateViewController(withIdentifier: "AddProductVC") as? AddProductViewController {
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+            break
+        }
+    }
 }
