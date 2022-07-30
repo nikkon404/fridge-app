@@ -50,12 +50,13 @@ class FetchProductViewController: UIViewController {
                     DispatchQueue.main.async { [self] in
                         
                         nameLabel.text = data.title
-                    }
+                
                     //goto form page and init data
                     if let vc = self.storyboard?.instantiateViewController(withIdentifier: "kAddItemFormVC") as? AddItemFormVC {
                         vc.item = data
                         
                         self.navigationController?.pushViewController(vc, animated: true)
+                    }
                     }
 
                     

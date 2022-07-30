@@ -28,10 +28,12 @@ class AddItemFormVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
     }
 
     
+    @IBOutlet weak var itemImage: UIImageView!
     @IBOutlet weak var categoryPicker: UIPickerView!
     
      var item : GroceryItem?
     
+    @IBOutlet weak var expDatepicker: UIDatePicker!
     
     @IBOutlet weak var txtTitle: UITextField!
     
@@ -43,6 +45,15 @@ class AddItemFormVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
         txtTitle.text = item?.title ?? ""
         txtDescription.text = item?.description ?? ""
         txtBrand.text = item?.brand ?? ""
+        
+        if let img = item?.getRenderableImage(){
+            itemImage.image = Converter.convertBase64StringToImage(imageBase64String: img)
+            
+        }
+        expDatepicker.minimumDate = Date()
+        
+        expDatepicker.addTarget(self, action: #selector(datePickerChanged(picker:)), for: .valueChanged)
+        
     }
     
 
@@ -53,10 +64,51 @@ class AddItemFormVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSou
         super.viewDidLoad()
         categoryPicker.dataSource = self
         categoryPicker.delegate = self
+
         
         //set data in textbox
         setupView()
         
     }
+    
+    
+    @IBAction func onSavePressed(_ sender: Any) {
+        let err = valiDateInput()
+        if err != ""
+        {
+            let alert = UIAlertController(title: "Error", message: err, preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+        else{
+            
+            //save and continue
+        }
+        
+    }
+    
+    @objc func datePickerChanged(picker: UIDatePicker) {
+        item?.expiryDate = String(describing: picker.date)
+        item?.notificationTime = ""
+        
+    }
+    
+    func valiDateInput() -> String {
+        var errorMsg = ""
+        item?.title = txtTitle.text
+        item?.description = txtDescription.text
+        item?.brand =  txtBrand.text
+        item?.category =  Constants.categories[ categoryPicker.selectedRow(inComponent: 0)]
+               
+        if(item?.expiryDate == nil )
+        {
+            errorMsg = "Please select expiry date!"
+        }
+        
+        return errorMsg
+        
+    }
+    
+    
 
 }
