@@ -61,9 +61,9 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="bCn-p7-kz9" kind="relationship" relationship="viewControllers" id="xSa-V0-EE7"/>
-                        <segue destination="QhW-EJ-ofo" kind="relationship" relationship="viewControllers" id="i8t-c1-29g"/>
-                        <segue destination="7zg-pe-jly" kind="relationship" relationship="viewControllers" id="xQP-zA-JPA"/>
+                        <segue destination="bCn-p7-kz9" kind="relationship" relationship="viewControllers" id="vfA-SA-lvo"/>
+                        <segue destination="QhW-EJ-ofo" kind="relationship" relationship="viewControllers" id="1xB-7k-jcJ"/>
+                        <segue destination="7zg-pe-jly" kind="relationship" relationship="viewControllers" id="tYG-Tb-Lem"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="enr-by-wyb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -369,20 +369,10 @@
             </objects>
             <point key="canvasLocation" x="1160.8695652173915" y="860.49107142857144"/>
         </scene>
-        <!--Product-->
-        <scene sceneID="UbD-PA-i9F">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Product" id="mm3-RL-mfa" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="WuK-ff-D9P"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eQO-GP-GTu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2346" y="-289"/>
-        </scene>
-        <!--Products-->
+        <!--Grocery-->
         <scene sceneID="P8w-4l-8Xc">
             <objects>
-                <viewController title="Products" id="bCn-p7-kz9" customClass="ProductListViewController" customModule="FridgeApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Products" id="bCn-p7-kz9" userLabel="Grocery" customClass="ProductListViewController" customModule="FridgeApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4ge-Vf-DVz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -429,7 +419,7 @@
                             <constraint firstItem="Ibp-JN-4Pb" firstAttribute="centerY" secondItem="bWU-S4-6dc" secondAttribute="centerY" id="p7g-s1-W4g"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Products" image="Grocery" id="htw-0V-v9X"/>
+                    <tabBarItem key="tabBarItem" title="Grocery" image="house" catalog="system" id="htw-0V-v9X"/>
                     <connections>
                         <outlet property="productTableView" destination="Ibp-JN-4Pb" id="dvU-l7-EpM"/>
                     </connections>
@@ -440,9 +430,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Grocery" width="23" height="23"/>
         <image name="barcode" catalog="system" width="128" height="93"/>
         <image name="cart" catalog="system" width="128" height="102"/>
+        <image name="house" catalog="system" width="128" height="106"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
