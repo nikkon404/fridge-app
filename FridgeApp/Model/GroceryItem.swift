@@ -38,7 +38,15 @@ struct GroceryItem : Codable {
 }
 
 ///Json model for grocery item
-struct GroceryItemModel:Codable{
-	let total: Int
-	let items : [GroceryItem]
+
+struct GroceryItemModel : Codable {
+	private var items : [GroceryItem]
+	
+	var count : Int {
+		items.count
+	}
+	
+	func getItem(at index:Int) -> GroceryItem {
+		return items[index]
+	}
 }
