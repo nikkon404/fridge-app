@@ -31,7 +31,6 @@
 		9897327228845E1800650C2E /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9897327128845E1800650C2E /* ApiService.swift */; };
 		9897327A28847F8400650C2E /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9897327928847F8400650C2E /* DatabaseService.swift */; };
 		98CC2F98288AF1F800371E26 /* NotificationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CC2F97288AF1F800371E26 /* NotificationItem.swift */; };
-		98DB29662884994D00E629F6 /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 98DB29652884994D00E629F6 /* SQLite */; };
 		98DB29692884B60800E629F6 /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DB29682884B60800E629F6 /* Converter.swift */; };
 		98DB296D2884BE0400E629F6 /* ShoppingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DB296C2884BE0400E629F6 /* ShoppingItem.swift */; };
 /* End PBXBuildFile section */
@@ -72,7 +71,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				98DB29662884994D00E629F6 /* SQLite in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -186,7 +184,6 @@
 			);
 			name = FridgeApp;
 			packageProductDependencies = (
-				98DB29652884994D00E629F6 /* SQLite */,
 			);
 			productName = FridgeApp;
 			productReference = 805BD199287B44CA00209326 /* FridgeApp.app */;
@@ -417,7 +414,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2D2H72KMHC;
 				INFOPLIST_FILE = FridgeApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -438,7 +435,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2D2H72KMHC;
 				INFOPLIST_FILE = FridgeApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -484,14 +481,6 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		98DB29652884994D00E629F6 /* SQLite */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 98DB29642884994C00E629F6 /* XCRemoteSwiftPackageReference "SQLite" */;
-			productName = SQLite;
-		};
-/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		5D2062032891218900277017 /* FridgeApp.xcdatamodeld */ = {

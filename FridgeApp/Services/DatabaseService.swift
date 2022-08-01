@@ -99,7 +99,7 @@ isChecked INTEGER);
 			sqlite3_bind_text(statement, 4, (item.title! as NSString).utf8String, -1, nil)
 			sqlite3_bind_text(statement, 5, (item.category! as NSString).utf8String, -1, nil)
 			sqlite3_bind_text(statement, 6, (String(describing: item.expiryDate!) as NSString).utf8String, -1, nil)
-			sqlite3_bind_text(statement, 7, (item.notificationTime! as NSString).utf8String, -1, nil)
+			sqlite3_bind_text(statement, 7, (String(describing: item.notificationTime!) as NSString).utf8String, -1, nil)
 			sqlite3_bind_text(statement, 8, ((item.description ?? "" )as NSString).utf8String, -1, nil)
 			sqlite3_bind_text(statement, 9, ((item.brand ?? "") as NSString).utf8String, -1, nil)
 			sqlite3_bind_text(statement, 10, ((item.getRenderableImage() ?? "") as NSString).utf8String, -1, nil)
@@ -134,7 +134,7 @@ isChecked INTEGER);
 				let dateFormatter = DateFormatter()
 				dateFormatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ssZZZ"
 				item.expiryDate = dateFormatter.date(from: String(cString: sqlite3_column_text(queryStatement, 6)))
-				item.notificationTime =  String(cString: sqlite3_column_text(queryStatement, 7))
+				item.notificationTime =   dateFormatter.date(from: String(cString: sqlite3_column_text(queryStatement, 7)))
 				item.description =  String(cString: sqlite3_column_text(queryStatement, 8))
 				item.brand =  String(cString: sqlite3_column_text(queryStatement, 9))
 				let x = sqlite3_column_text(queryStatement, 10)

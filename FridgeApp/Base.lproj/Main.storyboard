@@ -274,19 +274,6 @@
                                     <constraint firstAttribute="width" secondItem="c7B-9T-zwA" secondAttribute="height" multiplier="127:64" id="KGb-VH-daa"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expiry Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yn0-gg-HAs">
-                                <rect key="frame" x="20" y="581" width="87" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <datePicker contentMode="left" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="fjO-ab-t67" userLabel="exp date picker">
-                                <rect key="frame" x="131" y="557" width="283" height="68"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="283" id="Mwx-LH-STB"/>
-                                    <constraint firstAttribute="height" constant="68" id="YsR-NB-25i"/>
-                                </constraints>
-                            </datePicker>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BnK-bs-PCf">
                                 <rect key="frame" x="11" y="821" width="392" height="30"/>
                                 <color key="backgroundColor" red="0.27210702980000001" green="0.2456712133" blue="1" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="sRGB"/>
@@ -300,32 +287,72 @@
                                     <action selector="onSavePressed:" destination="vJt-jC-MIq" eventType="touchUpInside" id="hdx-Wt-Ufk"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expiry Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yn0-gg-HAs">
+                                <rect key="frame" x="20" y="620" width="87" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <datePicker contentMode="left" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="fjO-ab-t67" userLabel="exp date picker">
+                                <rect key="frame" x="151" y="596" width="283" height="68"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="283" id="Mwx-LH-STB"/>
+                                    <constraint firstAttribute="height" constant="68" id="YsR-NB-25i"/>
+                                </constraints>
+                            </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reminder Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JfH-Ea-Qm9">
+                                <rect key="frame" x="20" y="665" width="113" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <datePicker contentMode="left" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="Wzn-xY-D0e" userLabel="reminder time picker">
+                                <rect key="frame" x="151" y="641" width="283" height="68"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="283" id="0Js-GK-wW8"/>
+                                    <constraint firstAttribute="height" constant="68" id="moB-xj-Eg6"/>
+                                </constraints>
+                            </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2NR-81-xa0">
+                                <rect key="frame" x="131" y="558" width="254" height="30"/>
+                                <state key="normal" title="Pick Image"/>
+                                <connections>
+                                    <action selector="onPickImage:" destination="vJt-jC-MIq" eventType="touchUpInside" id="FS3-78-RfX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="9uI-jN-DmG"/>
                         <color key="backgroundColor" red="0.94162436548223349" green="0.94162436548223349" blue="0.94162436548223349" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="2NR-81-xa0" firstAttribute="trailing" secondItem="c7B-9T-zwA" secondAttribute="trailing" id="0I5-Kb-oXh"/>
                             <constraint firstItem="WlX-Vc-exK" firstAttribute="leading" secondItem="dvB-Lv-td8" secondAttribute="trailing" constant="58.5" id="0aS-8w-50H"/>
                             <constraint firstItem="WlX-Vc-exK" firstAttribute="top" secondItem="OlF-la-jTH" secondAttribute="bottom" constant="26.5" id="2Gw-sV-Ynq"/>
                             <constraint firstItem="OlF-la-jTH" firstAttribute="top" secondItem="jA7-Mu-vIw" secondAttribute="bottom" constant="28" id="30e-Yf-7t2"/>
                             <constraint firstItem="xS5-cN-drZ" firstAttribute="leading" secondItem="75Z-3s-6qU" secondAttribute="trailing" constant="34" id="3QJ-vi-wpd"/>
                             <constraint firstItem="Yn0-gg-HAs" firstAttribute="leading" secondItem="9uI-jN-DmG" secondAttribute="leading" constant="20" id="3iK-1J-51Z"/>
-                            <constraint firstItem="Yn0-gg-HAs" firstAttribute="top" secondItem="nP9-C1-mhg" secondAttribute="bottom" constant="132" id="6E6-NM-BQ9"/>
+                            <constraint firstItem="Yn0-gg-HAs" firstAttribute="top" secondItem="nP9-C1-mhg" secondAttribute="bottom" constant="171" id="6E6-NM-BQ9"/>
                             <constraint firstItem="9uI-jN-DmG" firstAttribute="trailing" secondItem="Yn0-gg-HAs" secondAttribute="trailing" constant="307" id="8Pe-eu-wti"/>
                             <constraint firstItem="nmj-OK-sax" firstAttribute="leading" secondItem="9uI-jN-DmG" secondAttribute="leading" constant="20" id="ADW-FH-Kgk"/>
                             <constraint firstItem="dvB-Lv-td8" firstAttribute="centerY" secondItem="WlX-Vc-exK" secondAttribute="centerY" id="AH1-kb-HWt"/>
                             <constraint firstItem="jA7-Mu-vIw" firstAttribute="leading" secondItem="oRD-GD-vr9" secondAttribute="trailing" constant="71" id="EKZ-XR-Pf6"/>
+                            <constraint firstItem="JfH-Ea-Qm9" firstAttribute="top" secondItem="Yn0-gg-HAs" secondAttribute="bottom" constant="24" id="Fkg-M9-PFP"/>
                             <constraint firstItem="75Z-3s-6qU" firstAttribute="top" secondItem="dvB-Lv-td8" secondAttribute="bottom" constant="65" id="GDG-he-ece"/>
-                            <constraint firstItem="fjO-ab-t67" firstAttribute="leading" secondItem="Yn0-gg-HAs" secondAttribute="trailing" constant="24" id="IrL-OA-VWt"/>
+                            <constraint firstItem="fjO-ab-t67" firstAttribute="leading" secondItem="Yn0-gg-HAs" secondAttribute="trailing" constant="44" id="IrL-OA-VWt"/>
                             <constraint firstItem="xS5-cN-drZ" firstAttribute="top" secondItem="WlX-Vc-exK" secondAttribute="bottom" constant="23.5" id="J72-h6-Iwr"/>
+                            <constraint firstItem="2NR-81-xa0" firstAttribute="leading" secondItem="c7B-9T-zwA" secondAttribute="leading" id="KL2-vm-9uW"/>
                             <constraint firstItem="BnK-bs-PCf" firstAttribute="leading" secondItem="9uI-jN-DmG" secondAttribute="leading" constant="11" id="Kw8-vL-kV2"/>
+                            <constraint firstItem="fjO-ab-t67" firstAttribute="top" secondItem="2NR-81-xa0" secondAttribute="bottom" constant="8" symbolic="YES" id="L09-yl-sPG"/>
                             <constraint firstItem="nmj-OK-sax" firstAttribute="top" secondItem="oRD-GD-vr9" secondAttribute="bottom" constant="29" id="LG3-8P-aBc"/>
                             <constraint firstItem="nP9-C1-mhg" firstAttribute="leading" secondItem="9uI-jN-DmG" secondAttribute="leading" constant="20" id="TAR-XY-mZv"/>
+                            <constraint firstItem="Wzn-xY-D0e" firstAttribute="leading" secondItem="JfH-Ea-Qm9" secondAttribute="trailing" constant="18" id="UfQ-ve-8Qw"/>
                             <constraint firstItem="oRD-GD-vr9" firstAttribute="top" secondItem="9uI-jN-DmG" secondAttribute="top" constant="45" id="VKF-ys-UaR"/>
                             <constraint firstItem="c7B-9T-zwA" firstAttribute="leading" secondItem="nP9-C1-mhg" secondAttribute="trailing" constant="64" id="Vxh-KM-1iR"/>
                             <constraint firstItem="jA7-Mu-vIw" firstAttribute="leading" secondItem="oRD-GD-vr9" secondAttribute="trailing" constant="71" id="axR-H3-JSE"/>
+                            <constraint firstItem="Wzn-xY-D0e" firstAttribute="leading" secondItem="JfH-Ea-Qm9" secondAttribute="trailing" constant="18" id="bKf-Hp-uJi"/>
                             <constraint firstItem="oRD-GD-vr9" firstAttribute="leading" secondItem="9uI-jN-DmG" secondAttribute="leading" constant="20" id="d9r-IU-mn9"/>
                             <constraint firstItem="jA7-Mu-vIw" firstAttribute="top" secondItem="9uI-jN-DmG" secondAttribute="top" constant="38" id="euV-pd-QMb"/>
-                            <constraint firstItem="fjO-ab-t67" firstAttribute="top" secondItem="c7B-9T-zwA" secondAttribute="bottom" constant="1" id="eyR-Cj-GKG"/>
+                            <constraint firstItem="fjO-ab-t67" firstAttribute="top" secondItem="c7B-9T-zwA" secondAttribute="bottom" constant="40" id="eyR-Cj-GKG"/>
+                            <constraint firstItem="Wzn-xY-D0e" firstAttribute="top" secondItem="c7B-9T-zwA" secondAttribute="bottom" constant="85" id="g9c-w8-LVC"/>
                             <constraint firstItem="dvB-Lv-td8" firstAttribute="leading" secondItem="nmj-OK-sax" secondAttribute="leading" id="ghr-22-NXN"/>
                             <constraint firstItem="9uI-jN-DmG" firstAttribute="trailing" secondItem="BnK-bs-PCf" secondAttribute="trailing" constant="11" id="hpn-MZ-osF"/>
                             <constraint firstItem="jA7-Mu-vIw" firstAttribute="top" secondItem="9uI-jN-DmG" secondAttribute="top" constant="38" id="jlu-iV-ZdY"/>
@@ -334,6 +361,7 @@
                             <constraint firstItem="9uI-jN-DmG" firstAttribute="bottom" secondItem="BnK-bs-PCf" secondAttribute="bottom" constant="11" id="nRD-hV-iGg"/>
                             <constraint firstItem="OlF-la-jTH" firstAttribute="leading" secondItem="nmj-OK-sax" secondAttribute="trailing" constant="16" id="o1T-nT-8m8"/>
                             <constraint firstItem="nP9-C1-mhg" firstAttribute="top" secondItem="75Z-3s-6qU" secondAttribute="bottom" constant="49" id="qev-B3-uLg"/>
+                            <constraint firstItem="JfH-Ea-Qm9" firstAttribute="leading" secondItem="9uI-jN-DmG" secondAttribute="leading" constant="20" id="xpJ-5m-myO"/>
                             <constraint firstItem="WlX-Vc-exK" firstAttribute="leading" secondItem="dvB-Lv-td8" secondAttribute="trailing" constant="58.5" id="y8s-s3-bjD"/>
                         </constraints>
                     </view>
@@ -341,6 +369,7 @@
                         <outlet property="categoryPicker" destination="xS5-cN-drZ" id="Fk0-bS-FhY"/>
                         <outlet property="expDatepicker" destination="fjO-ab-t67" id="arb-LB-Vxg"/>
                         <outlet property="itemImage" destination="c7B-9T-zwA" id="dBA-xx-yOc"/>
+                        <outlet property="reminderDateTimePicker" destination="Wzn-xY-D0e" id="efm-ii-6Qr"/>
                         <outlet property="txtBrand" destination="WlX-Vc-exK" id="hiX-QG-zCC"/>
                         <outlet property="txtDescription" destination="OlF-la-jTH" id="IPz-yx-FyB"/>
                         <outlet property="txtTitle" destination="jA7-Mu-vIw" id="jJj-hs-HaS"/>

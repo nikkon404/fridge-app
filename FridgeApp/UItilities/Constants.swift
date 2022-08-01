@@ -18,7 +18,7 @@ class Constants{
     static let apiUrl = "https://api.upcitemdb.com/prod/trial/lookup?upc="
     static let apIKey = "098f6bc22621d_demo_4de4e8326b4f6"
     
-    static let defaultNotificationHour = 48;
+    static let defaultNotificationHour = 24; //x hours before actual expiry date
     
     //for database
     static let databaseName = "fridgeApp.sqlite"

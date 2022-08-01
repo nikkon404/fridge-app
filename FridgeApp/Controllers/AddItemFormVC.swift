@@ -7,12 +7,13 @@
 
 import UIKit
 
-class AddItemFormVC: UIViewController {
+class AddItemFormVC: UIViewController{
 	var item : GroceryItem?
 	
 	@IBOutlet weak var itemImage: UIImageView!
 	@IBOutlet weak var categoryPicker: UIPickerView!
 	@IBOutlet weak var expDatepicker: UIDatePicker!
+    @IBOutlet weak var reminderDateTimePicker: UIDatePicker!
 	@IBOutlet weak var txtTitle: UITextField!
 	@IBOutlet weak var txtDescription: UITextView!
 	@IBOutlet weak var txtBrand: UITextField!
@@ -38,6 +39,9 @@ class AddItemFormVC: UIViewController {
 	}
 	
 	public func setupView()  {
+        reminderDateTimePicker.minimumDate = Date()
+        expDatepicker.minimumDate = Date()
+
 		txtTitle.text = item?.title ?? ""
 		txtDescription.text = item?.description ?? ""
 		txtBrand.text = item?.brand ?? ""
@@ -45,14 +49,28 @@ class AddItemFormVC: UIViewController {
 		if let img = item?.getRenderableImage(){
 			itemImage.image = Converter.convertBase64StringToImage(imageBase64String: img)
 		}
-		expDatepicker.minimumDate = Date()
-		expDatepicker.addTarget(self, action: #selector(datePickerChanged(picker:)), for: .valueChanged)
+		expDatepicker.addTarget(self, action: #selector(expdatePickerChanged(picker:)), for: .valueChanged)
+        reminderDateTimePicker.addTarget(self, action: #selector(reminderTimeChanged(picker:)), for: .valueChanged)
+
 	}
 	
-	@objc func datePickerChanged(picker: UIDatePicker) {
+    ///callback for expiry date picker chaned
+	@objc func expdatePickerChanged(picker: UIDatePicker) {
 		item?.expiryDate = picker.date
-		item?.notificationTime = ""
+        
+        //resetting val of reminder everytime
+        reminderDateTimePicker.maximumDate = picker.date
+        
+        //subtracting  X hours in selected expiry date to set reminder notification date
+        let defaultHoursEarly = Calendar.current.date(byAdding: .hour, value: -Constants.defaultNotificationHour, to: picker.date)!
+
+        item?.notificationTime = defaultHoursEarly
 	}
+    
+    ///callback for expiry date picker chaned
+    @objc func reminderTimeChanged(picker: UIDatePicker) {
+        item?.notificationTime = picker.date
+    }
 	
 	func valiDateInput() -> String? {
 		var errorMsg: String?
@@ -64,9 +82,14 @@ class AddItemFormVC: UIViewController {
 		if(item?.expiryDate == nil ) {
 			errorMsg = "Please select expiry date!"
 		}
+        
+        else if(item?.notificationTime == nil ) {
+            errorMsg = "Please set reminder date - time!"
+        }
 		
 		return errorMsg
 	}
+    
 }
 
 extension AddItemFormVC : UIPickerViewDelegate, UIPickerViewDataSource {
@@ -84,3 +107,56 @@ extension AddItemFormVC : UIPickerViewDelegate, UIPickerViewDataSource {
 		return  Constants.categories[row]
 	}
 }
+
+
+
+
+///extension for picking and handeling images functions
+extension AddItemFormVC : UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+    
+    
+    @IBAction func onPickImage(_ sender: Any) {
+        
+        //showing action sheet to let user pick image from the gallery or camera
+        let imageSourceSelector = UIAlertController(title: nil, message: nil, preferredStyle:.actionSheet)
+        
+        let camera = UIAlertAction(title: "Camera", style: .default) { (action) in
+            self.proceedPickImage(source: .camera)
+        }
+        
+        let gallery = UIAlertAction(title: "Gallery", style: .default) { (action) in
+            self.proceedPickImage(source: .photoLibrary)
+        }
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+        }
+        
+        // Adding the actions to  actionSheet
+        imageSourceSelector.addAction(camera)
+        imageSourceSelector.addAction(gallery)
+        imageSourceSelector.addAction(cancel)
+        
+        // Present the action sheet
+        self.present(imageSourceSelector, animated: true,completion: nil)
+        
+    }
+    
+    ///begins to select image from the given image source
+    func proceedPickImage(source: UIImagePickerController.SourceType)  {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.allowsEditing = false //If you want edit option set "true"
+        imagePickerController.sourceType = source
+        imagePickerController.delegate = self
+        present(imagePickerController, animated: true, completion: nil)    }
+    
+    
+    ///handler when image is done picking from the image source
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let tempImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+        self.itemImage.image  = tempImage
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {}
+}
+

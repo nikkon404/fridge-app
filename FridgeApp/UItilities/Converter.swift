@@ -10,9 +10,9 @@ import UIKit
 
 
 class Converter{
-    ///Method that converts imageurl to base64 string
     //Author - user3763002
     //ref url - https://stackoverflow.com/questions/2782454/can-i-load-a-uiimage-from-a-url
+    ///Method that converts imageurl to base64 string
     static func onlineImageToBase64(imgUrl: String) -> String?  {
         let url = NSURL(string: imgUrl);
         let imageData = try? NSData(contentsOf: url! as URL,options: NSData.ReadingOptions.mappedIfSafe)
