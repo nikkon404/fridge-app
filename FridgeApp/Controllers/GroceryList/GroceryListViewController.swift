@@ -44,6 +44,7 @@ class GroceryListViewController: UIViewController {
                                   forCellReuseIdentifier: GroceryListViewController.kTableCellID)
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.refreshData), name: NSNotification.Name(rawValue: Constants.onDataChanged), object: nil)
+        
     }
     
     
@@ -135,8 +136,6 @@ extension GroceryListViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selected = items[indexPath.row]
         
-        print(selected.dateAdded ?? "")
-        
         //TODO: goto detail page
         if let vc = self.storyboard?.instantiateViewController(withIdentifier: "kItemDetailViewController") as? ItemDetailViewController {
             vc.item = selected
@@ -155,18 +154,21 @@ extension GroceryListViewController : UITableViewDataSource {
         items.count
     }
     
+     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            print("test")
+           items.remove(at: indexPath.row)
+            DatabaseService.deleteGroceryItem(id: items[indexPath.row].id ?? 0)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        } else if editingStyle == .insert {
+            
+        }
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = self.productTableView.dequeueReusableCell(withIdentifier: "cell") as! ItemCellView
-        
-        
-        cell.img?.image = Converter.base64StringToImage(imageBase64String:  items[indexPath.row].base64Img ?? "")
-        
-        cell.lblTitle?.text = items[indexPath.row].title ?? ""
-        cell.lblSubtite?.text = items[indexPath.row].category ?? ""
-        cell.lblBottom?.text =  "expires in " + String(describing: Converter.daysBetwee
-        
-        
+        cell.setupView(item: items[indexPath.row])
         return cell
     }
 }
@@ -175,7 +177,7 @@ extension GroceryListViewController : UITableViewDataSource {
 extension GroceryListViewController : UITextFieldDelegate {
     // Code to dismiss keyboard after return
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.view.endEditing(true)nDates(endDate: items[indexPath.row].expiryDate!)) + " days"
+        self.view.endEditing(true)
         self.refreshData()
         return false
     }

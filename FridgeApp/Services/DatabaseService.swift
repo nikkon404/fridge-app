@@ -68,7 +68,6 @@ isChecked INTEGER);
 		
 		var statement : OpaquePointer? = nil
 		let res = sqlite3_prepare_v2(db, query, -1, &statement, nil)
-		print(String(describing: res))
 		if res == SQLITE_OK {
 			if sqlite3_step(statement) == SQLITE_DONE {
 				print(tableName + " Table creation success")
@@ -203,16 +202,5 @@ isChecked INTEGER);
 		return success
 	}
 	
-    private static func getDateFromString(_ val: String)-> Date?{
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-mm-dd hh:mm:ss Z"
-        dateFormatter.timeZone = TimeZone(identifier: "UTC") // Need to define TimeZone
-
-        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-        
-        let date =  dateFormatter.date(from: val)
-        
-        return date
-        
-    }
+    
 }

@@ -41,11 +41,14 @@ class AddItemFormVC: UIViewController{
             showAlert("Error",err)
 		}
 		else{
+            
+            //test code to set expiry date 7 days ago
+           // item?.expiryDate  = DCalendar.current.date(byAdding: .day, value: -7, to: Date())
+
             let success =  DatabaseService.insertGrocery(item: &item!)
             if(success)
             {
                 NotificationService.register(item:  item!)
-
                 self.dismiss(animated: true, completion: nil)
                 self.tabBarController?.selectedIndex = 0
                 showAlert("Info","Item added successfully!")

@@ -88,7 +88,6 @@
 				893FB19BC1ABC7A97A1452D0 /* Pods-FridgeApp.debug.xcconfig */,
 				258AAA987B64AB99573C3EAD /* Pods-FridgeApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -254,7 +253,7 @@
 			);
 			mainGroup = 805BD190287B44CA00209326;
 			packageReferences = (
-				98DB29642884994C00E629F6 /* XCRemoteSwiftPackageReference "SQLite.swift" */,
+				98DB29642884994C00E629F6 /* XCRemoteSwiftPackageReference "SQLite" */,
 			);
 			productRefGroup = 805BD19A287B44CA00209326 /* Products */;
 			projectDirPath = "";
@@ -557,7 +556,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		98DB29642884994C00E629F6 /* XCRemoteSwiftPackageReference "SQLite.swift" */ = {
+		98DB29642884994C00E629F6 /* XCRemoteSwiftPackageReference "SQLite" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/stephencelis/SQLite.swift";
 			requirement = {
