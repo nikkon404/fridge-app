@@ -9,6 +9,8 @@ import UIKit
 
 class AddItemFormVC: UIViewController{
 	var item : GroceryItem?
+    
+
 	
 	@IBOutlet weak var itemImage: UIImageView!
 	@IBOutlet weak var categoryPicker: UIPickerView!
@@ -26,15 +28,33 @@ class AddItemFormVC: UIViewController{
 		//set data in textbox
 		setupView()
 	}
+    
+    func showAlert(_ title: String,_ msg: String) {
+        let alert = UIAlertController(title: title, message: msg, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+        
+    }
 	
 	@IBAction func onSavePressed(_ sender: Any) {
 		if let err = valiDateInput() {
-			let alert = UIAlertController(title: "Error", message: err, preferredStyle: UIAlertController.Style.alert)
-			alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertAction.Style.default, handler: nil))
-			self.present(alert, animated: true, completion: nil)
+            showAlert("Error",err)
 		}
 		else{
-			//save and continue
+            let success =  DatabaseService.insertGrocery(item: &item!)
+            if(success)
+            {
+                self.dismiss(animated: true, completion: nil)
+                self.tabBarController?.selectedIndex = 0
+                showAlert("Info","Item added successfully!")
+
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: Constants.onDataChanged), object: nil)
+
+            }
+            else{
+                showAlert("Error","Failed to save grocery item")
+
+            }
 		}
 	}
 	
@@ -47,7 +67,7 @@ class AddItemFormVC: UIViewController{
 		txtBrand.text = item?.brand ?? ""
 		
 		if let img = item?.getRenderableImage(){
-			itemImage.image = Converter.convertBase64StringToImage(imageBase64String: img)
+			itemImage.image = Converter.base64StringToImage(imageBase64String: img)
 		}
 		expDatepicker.addTarget(self, action: #selector(expdatePickerChanged(picker:)), for: .valueChanged)
         reminderDateTimePicker.addTarget(self, action: #selector(reminderTimeChanged(picker:)), for: .valueChanged)
@@ -64,6 +84,7 @@ class AddItemFormVC: UIViewController{
         //subtracting  X hours in selected expiry date to set reminder notification date
         let defaultHoursEarly = Calendar.current.date(byAdding: .hour, value: -Constants.defaultNotificationHour, to: picker.date)!
 
+        reminderDateTimePicker.date = defaultHoursEarly
         item?.notificationTime = defaultHoursEarly
 	}
     
@@ -73,21 +94,24 @@ class AddItemFormVC: UIViewController{
     }
 	
 	func valiDateInput() -> String? {
-		var errorMsg: String?
 		item?.title = txtTitle.text
 		item?.description = txtDescription.text
 		item?.brand =  txtBrand.text
 		item?.category =  Constants.categories[ categoryPicker.selectedRow(inComponent: 0)]
+        item?.base64Img =  Converter.imageToBase64String(img:  itemImage.image!)
+        
+        if (item?.title ?? "") == "" {
+            return "Please enter title"
+        }
 		
 		if(item?.expiryDate == nil ) {
-			errorMsg = "Please select expiry date!"
+			return "Please select expiry date!"
 		}
         
         else if(item?.notificationTime == nil ) {
-            errorMsg = "Please set reminder date - time!"
+            return "Please set reminder date - time!"
         }
-		
-		return errorMsg
+		return nil
 	}
     
 }

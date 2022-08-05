@@ -19,10 +19,8 @@
 		805BD1A6287B44CB00209326 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 805BD1A5287B44CB00209326 /* Assets.xcassets */; };
 		805BD1A9287B44CB00209326 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 805BD1A7287B44CB00209326 /* LaunchScreen.storyboard */; };
 		805BD1B5287B458800209326 /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805BD1B4287B458800209326 /* ProductListViewController.swift */; };
-		805BD1B8287B45AA00209326 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805BD1B7287B45AA00209326 /* Product.swift */; };
 		805BD1DA2880980500209326 /* BarcodeScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805BD1D92880980500209326 /* BarcodeScannerViewController.swift */; };
 		80B25E8D288B1893003C01D3 /* FetchProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B25E8C288B1893003C01D3 /* FetchProductViewController.swift */; };
-		80B25E9E288B1E7C003C01D3 /* ProductList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B25E9D288B1E7C003C01D3 /* ProductList.swift */; };
 		80B25EA1288F87D6003C01D3 /* ScannerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B25EA0288F87D6003C01D3 /* ScannerViewDelegate.swift */; };
 		80B89B6C28965DA500A199E1 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B89B6B28965DA500A199E1 /* NotificationService.swift */; };
 		9874CCD728942CCE00B15913 /* AddItemFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9874CCD628942CCE00B15913 /* AddItemFormVC.swift */; };
@@ -50,10 +48,8 @@
 		805BD1A8287B44CB00209326 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		805BD1AA287B44CB00209326 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		805BD1B4287B458800209326 /* ProductListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
-		805BD1B7287B45AA00209326 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		805BD1D92880980500209326 /* BarcodeScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerViewController.swift; sourceTree = "<group>"; };
 		80B25E8C288B1893003C01D3 /* FetchProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchProductViewController.swift; sourceTree = "<group>"; };
-		80B25E9D288B1E7C003C01D3 /* ProductList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductList.swift; sourceTree = "<group>"; };
 		80B25EA0288F87D6003C01D3 /* ScannerViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewDelegate.swift; sourceTree = "<group>"; };
 		80B89B6B28965DA500A199E1 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		9874CCD628942CCE00B15913 /* AddItemFormVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemFormVC.swift; sourceTree = "<group>"; };
@@ -139,8 +135,6 @@
 		805BD1BA287B45B800209326 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				80B25E9D288B1E7C003C01D3 /* ProductList.swift */,
-				805BD1B7287B45AA00209326 /* Product.swift */,
 				9897326E28845BE300650C2E /* GroceryItem.swift */,
 				98DB296C2884BE0400E629F6 /* ShoppingItem.swift */,
 				98CC2F97288AF1F800371E26 /* NotificationItem.swift */,
@@ -251,12 +245,10 @@
 				805BD19D287B44CA00209326 /* AppDelegate.swift in Sources */,
 				80B25EA1288F87D6003C01D3 /* ScannerViewDelegate.swift in Sources */,
 				98DB296D2884BE0400E629F6 /* ShoppingItem.swift in Sources */,
-				805BD1B8287B45AA00209326 /* Product.swift in Sources */,
 				98CC2F98288AF1F800371E26 /* NotificationItem.swift in Sources */,
 				805BD1B5287B458800209326 /* ProductListViewController.swift in Sources */,
 				5D2062092891232A00277017 /* ToDoListItem+CoreDataClass.swift in Sources */,
 				9897327228845E1800650C2E /* ApiService.swift in Sources */,
-				80B25E9E288B1E7C003C01D3 /* ProductList.swift in Sources */,
 				805BD1DA2880980500209326 /* BarcodeScannerViewController.swift in Sources */,
 				9897327A28847F8400650C2E /* DatabaseService.swift in Sources */,
 				98DB29692884B60800E629F6 /* Converter.swift in Sources */,

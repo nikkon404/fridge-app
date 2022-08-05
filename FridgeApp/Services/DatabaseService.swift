@@ -40,11 +40,11 @@ CREATE TABLE IF NOT EXISTS \(Constants.groceryTable) (
 id INTEGER PRIMARY KEY,
 ean TEXT,
 upc Text,
-dateAdded TEXT,
+dateAdded INTEGER,
 title TEXT,
 category TEXT,
-expiryDate TEXT,
-notificationTime TEXT,
+expiryDate INTEGER,
+notificationTime INTEGER,
 description TEXT,
 brand TEXT,
 img, TEXT);
@@ -93,13 +93,19 @@ isChecked INTEGER);
 			//binding values with ? placeholder in the query
 			sqlite3_bind_text(statement, 1, (item.ean! as NSString).utf8String, -1, nil)
 			sqlite3_bind_text(statement, 2, (item.upc! as NSString).utf8String, -1, nil)
+            
+            let dateAdded = Int(Date().timeIntervalSince1970)
+            sqlite3_bind_int(statement, 3, Int32(dateAdded))
 			
-			item.dateAdded = String(describing: Date())
-			sqlite3_bind_text(statement, 3, (item.dateAdded! as NSString).utf8String, -1, nil)
 			sqlite3_bind_text(statement, 4, (item.title! as NSString).utf8String, -1, nil)
 			sqlite3_bind_text(statement, 5, (item.category! as NSString).utf8String, -1, nil)
-			sqlite3_bind_text(statement, 6, (String(describing: item.expiryDate!) as NSString).utf8String, -1, nil)
-			sqlite3_bind_text(statement, 7, (String(describing: item.notificationTime!) as NSString).utf8String, -1, nil)
+            
+            let ExpDate = Int(item.expiryDate!.timeIntervalSince1970)
+            sqlite3_bind_int(statement, 6, Int32(ExpDate))
+            
+            let notifDate = Int(item.expiryDate!.timeIntervalSince1970)
+            sqlite3_bind_int(statement, 7, Int32(notifDate))
+            
 			sqlite3_bind_text(statement, 8, ((item.description ?? "" )as NSString).utf8String, -1, nil)
 			sqlite3_bind_text(statement, 9, ((item.brand ?? "") as NSString).utf8String, -1, nil)
 			sqlite3_bind_text(statement, 10, ((item.getRenderableImage() ?? "") as NSString).utf8String, -1, nil)
@@ -128,13 +134,23 @@ isChecked INTEGER);
 				item.id = Int(sqlite3_column_int(queryStatement, 0))
 				item.ean = String(describing: String(cString: sqlite3_column_text(queryStatement, 1)))
 				item.upc =  String(cString: sqlite3_column_text(queryStatement, 2))
-				item.dateAdded =  String(cString: sqlite3_column_text(queryStatement, 3))
+                
+                var raw = Int(sqlite3_column_int(queryStatement, 3))
+                var date =  Date(timeIntervalSince1970: TimeInterval(raw))
+                item.dateAdded = date
+                
+                
 				item.title =  String(cString: sqlite3_column_text(queryStatement, 4))
 				item.category =  String(cString: sqlite3_column_text(queryStatement, 5))
-				let dateFormatter = DateFormatter()
-				dateFormatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ssZZZ"
-				item.expiryDate = dateFormatter.date(from: String(cString: sqlite3_column_text(queryStatement, 6)))
-				item.notificationTime =   dateFormatter.date(from: String(cString: sqlite3_column_text(queryStatement, 7)))
+				
+                 raw = Int(sqlite3_column_int(queryStatement, 6))
+                 date =  Date(timeIntervalSince1970: TimeInterval(raw))
+                item.expiryDate = date
+                
+                raw = Int(sqlite3_column_int(queryStatement, 7))
+                 date =  Date(timeIntervalSince1970: TimeInterval(raw))
+				item.notificationTime =    Date(timeIntervalSince1970: TimeInterval(raw))
+                
 				item.description =  String(cString: sqlite3_column_text(queryStatement, 8))
 				item.brand =  String(cString: sqlite3_column_text(queryStatement, 9))
 				let x = sqlite3_column_text(queryStatement, 10)
@@ -182,5 +198,16 @@ isChecked INTEGER);
 		return success
 	}
 	
-	
+    private static func getDateFromString(_ val: String)-> Date?{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-mm-dd hh:mm:ss Z"
+        dateFormatter.timeZone = TimeZone(identifier: "UTC") // Need to define TimeZone
+
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        
+        let date =  dateFormatter.date(from: val)
+        
+        return date
+        
+    }
 }

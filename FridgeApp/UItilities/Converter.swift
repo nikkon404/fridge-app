@@ -20,12 +20,12 @@ class Converter{
     }
     
     ///Method that converts uiimage to base64 string
-    static func convertImageToBase64String (img: UIImage) -> String {
+    static func imageToBase64String (img: UIImage) -> String {
         return img.jpegData(compressionQuality: 1)?.base64EncodedString() ?? ""
     }
     
     ///Method that converts base64 string to UIImage
-    static func convertBase64StringToImage (imageBase64String:String) -> UIImage {
+    static func base64StringToImage (imageBase64String:String) -> UIImage {
         let imageData = Data(base64Encoded: imageBase64String)
         let image = UIImage(data: imageData!)
         return image!

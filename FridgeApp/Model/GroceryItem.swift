@@ -12,11 +12,11 @@ import Foundation
 struct GroceryItem : Codable {
 	//should not be changed once set
 	var id: Int?
-	var ean,upc,dateAdded: String?
+	var ean,upc: String?
 	
 	//variable that can be changed and updated
 	var title,category: String?
-	var expiryDate, notificationTime : Date?
+	var dateAdded, expiryDate, notificationTime : Date?
 	var description, brand: String?
 	var images: [String]?
 	var base64Img: String?

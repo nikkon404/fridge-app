@@ -28,5 +28,7 @@ class Constants{
     static let categories = ["Vegetables", "Fruits", "Meat", "Dairy", "Grains", "Legumes", "Baked Goods", "Seafood", "Nuts and seeds", "Herbs and Spices", "Garnishes", "Others"]
        
     
+    //notif
+    static let onDataChanged = "dataChanged"
     
 }
