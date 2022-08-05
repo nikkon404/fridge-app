@@ -63,8 +63,4 @@ class ItemCellView : UITableViewCell {
     }
     
     
-    
-    
-    
-    
 }

@@ -10,6 +10,9 @@ import DropDown
 
 class GroceryListViewController: UIViewController {
     
+    //making it singleton
+    static var instance: GroceryListViewController!
+    
     
     public var items = [GroceryItem]()
     var menu = DropDown()
@@ -32,7 +35,9 @@ class GroceryListViewController: UIViewController {
     
     override func viewDidLoad() {
         
+        
         super.viewDidLoad()
+        
         txtSearch.delegate = self
       
         refreshData()
@@ -44,6 +49,8 @@ class GroceryListViewController: UIViewController {
                                   forCellReuseIdentifier: GroceryListViewController.kTableCellID)
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.refreshData), name: NSNotification.Name(rawValue: Constants.onDataChanged), object: nil)
+        
+        GroceryListViewController.instance = self
         
     }
     

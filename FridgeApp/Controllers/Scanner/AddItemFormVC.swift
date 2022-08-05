@@ -51,8 +51,11 @@ class AddItemFormVC: UIViewController{
                 NotificationService.register(item:  item!)
                 self.dismiss(animated: true, completion: nil)
                 self.tabBarController?.selectedIndex = 0
+                self.navigationController?.popToRootViewController(animated: true)
                 showAlert("Info","Item added successfully!")
                 
+                
+                GroceryListViewController.instance.refreshData()
                 
 
               //  NotificationCenter.default.post(name: NSNotification.Name(rawValue: Constants.onDataChanged), object: nil)

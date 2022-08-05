@@ -39,7 +39,11 @@ class NotificationService: NSObject {
         // show this notification 10 seconds from now
        // let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 15, repeats: false)
         
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: item.notificationTime!.timeIntervalSinceNow, repeats: false)
+        
+        let timeInterval = item.notificationTime!.timeIntervalSinceNow        
+        
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeInterval > 0 ? timeInterval : 5, repeats: false)
         
         // choose a random identifier
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
