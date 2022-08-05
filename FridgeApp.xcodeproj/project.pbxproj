@@ -23,6 +23,7 @@
 		80B25E8D288B1893003C01D3 /* FetchProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B25E8C288B1893003C01D3 /* FetchProductViewController.swift */; };
 		80B25EA1288F87D6003C01D3 /* ScannerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B25EA0288F87D6003C01D3 /* ScannerViewDelegate.swift */; };
 		80B89B6C28965DA500A199E1 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B89B6B28965DA500A199E1 /* NotificationService.swift */; };
+		9083F307D4481A6D5BB53A48 /* Pods_FridgeApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77118171292CB8EB45AD4C5B /* Pods_FridgeApp.framework */; };
 		9874CCD728942CCE00B15913 /* AddItemFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9874CCD628942CCE00B15913 /* AddItemFormVC.swift */; };
 		9897326B2884528100650C2E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9897326A2884528100650C2E /* Constants.swift */; };
 		9897326F28845BE300650C2E /* GroceryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9897326E28845BE300650C2E /* GroceryItem.swift */; };
@@ -36,10 +37,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		258AAA987B64AB99573C3EAD /* Pods-FridgeApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FridgeApp.release.xcconfig"; path = "Target Support Files/Pods-FridgeApp/Pods-FridgeApp.release.xcconfig"; sourceTree = "<group>"; };
 		5D2062042891218900277017 /* FridgeApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FridgeApp.xcdatamodel; sourceTree = "<group>"; };
 		5D2062072891232A00277017 /* ToDoListItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToDoListItem+CoreDataClass.swift"; sourceTree = "<group>"; };
 		5D2062082891232A00277017 /* ToDoListItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToDoListItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		5D7BE934288E74C200E60CF7 /* ShoppingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListViewController.swift; sourceTree = "<group>"; };
+		77118171292CB8EB45AD4C5B /* Pods_FridgeApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FridgeApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		801753F52880A9E300414078 /* AddProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductViewController.swift; sourceTree = "<group>"; };
 		805BD199287B44CA00209326 /* FridgeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FridgeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		805BD19C287B44CA00209326 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -54,6 +57,7 @@
 		80B25E8C288B1893003C01D3 /* FetchProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchProductViewController.swift; sourceTree = "<group>"; };
 		80B25EA0288F87D6003C01D3 /* ScannerViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewDelegate.swift; sourceTree = "<group>"; };
 		80B89B6B28965DA500A199E1 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		893FB19BC1ABC7A97A1452D0 /* Pods-FridgeApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FridgeApp.debug.xcconfig"; path = "Target Support Files/Pods-FridgeApp/Pods-FridgeApp.debug.xcconfig"; sourceTree = "<group>"; };
 		9874CCD628942CCE00B15913 /* AddItemFormVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemFormVC.swift; sourceTree = "<group>"; };
 		9897326A2884528100650C2E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9897326E28845BE300650C2E /* GroceryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryItem.swift; sourceTree = "<group>"; };
@@ -71,19 +75,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9083F307D4481A6D5BB53A48 /* Pods_FridgeApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5D20620C2891235500277017 /* ToDoListItem */ = {
+		45362A93544AE3E4CA34FDC9 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
+				893FB19BC1ABC7A97A1452D0 /* Pods-FridgeApp.debug.xcconfig */,
+				258AAA987B64AB99573C3EAD /* Pods-FridgeApp.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		5D20620C2891235500277017 /* ShoppingList */ = {
+			isa = PBXGroup;
+			children = (
+				5D7BE934288E74C200E60CF7 /* ShoppingListViewController.swift */,
 				5D2062072891232A00277017 /* ToDoListItem+CoreDataClass.swift */,
 				5D2062082891232A00277017 /* ToDoListItem+CoreDataProperties.swift */,
 			);
-			path = ToDoListItem;
+			path = ShoppingList;
 			sourceTree = "<group>";
 		};
 		805BD190287B44CA00209326 = {
@@ -91,6 +107,8 @@
 			children = (
 				805BD19B287B44CA00209326 /* FridgeApp */,
 				805BD19A287B44CA00209326 /* Products */,
+				45362A93544AE3E4CA34FDC9 /* Pods */,
+				CE2C13F7FD8CF8D46AB0AC51 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -125,10 +143,9 @@
 			children = (
 				98BEACB1289D54CE00A6B828 /* Scanner */,
 				98EA92B5289CBCD0001F9419 /* GroceryList */,
-				5D20620C2891235500277017 /* ToDoListItem */,
+				5D20620C2891235500277017 /* ShoppingList */,
 				805BD1A0287B44CA00209326 /* RootTabBarController.swift */,
 				801753F52880A9E300414078 /* AddProductViewController.swift */,
-				5D7BE934288E74C200E60CF7 /* ShoppingListViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -183,6 +200,14 @@
 			path = GroceryList;
 			sourceTree = "<group>";
 		};
+		CE2C13F7FD8CF8D46AB0AC51 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				77118171292CB8EB45AD4C5B /* Pods_FridgeApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -190,17 +215,17 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 805BD1AD287B44CB00209326 /* Build configuration list for PBXNativeTarget "FridgeApp" */;
 			buildPhases = (
+				3A38C10DD8BCA3E0A47CE4B0 /* [CP] Check Pods Manifest.lock */,
 				805BD195287B44CA00209326 /* Sources */,
 				805BD196287B44CA00209326 /* Frameworks */,
 				805BD197287B44CA00209326 /* Resources */,
+				7D433F877846B2C7DC9CA552 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = FridgeApp;
-			packageProductDependencies = (
-			);
 			productName = FridgeApp;
 			productReference = 805BD199287B44CA00209326 /* FridgeApp.app */;
 			productType = "com.apple.product-type.application";
@@ -229,7 +254,7 @@
 			);
 			mainGroup = 805BD190287B44CA00209326;
 			packageReferences = (
-				98DB29642884994C00E629F6 /* XCRemoteSwiftPackageReference "SQLite" */,
+				98DB29642884994C00E629F6 /* XCRemoteSwiftPackageReference "SQLite.swift" */,
 			);
 			productRefGroup = 805BD19A287B44CA00209326 /* Products */;
 			projectDirPath = "";
@@ -252,6 +277,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3A38C10DD8BCA3E0A47CE4B0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FridgeApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7D433F877846B2C7DC9CA552 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FridgeApp/Pods-FridgeApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FridgeApp/Pods-FridgeApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FridgeApp/Pods-FridgeApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		805BD195287B44CA00209326 /* Sources */ = {
@@ -424,6 +491,7 @@
 		};
 		805BD1AE287B44CB00209326 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 893FB19BC1ABC7A97A1452D0 /* Pods-FridgeApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -445,6 +513,7 @@
 		};
 		805BD1AF287B44CB00209326 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 258AAA987B64AB99573C3EAD /* Pods-FridgeApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -488,7 +557,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		98DB29642884994C00E629F6 /* XCRemoteSwiftPackageReference "SQLite" */ = {
+		98DB29642884994C00E629F6 /* XCRemoteSwiftPackageReference "SQLite.swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/stephencelis/SQLite.swift";
 			requirement = {

@@ -20,7 +20,7 @@
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" red="0.26903553299492389" green="0.060514685989693319" blue="0.12458253837392289" alpha="0.84705882352941175" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.22745098039215686" green="0.054901960784313725" blue="0.10980392156862745" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="THc-wT-K2e" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="966-Hz-H1W"/>
                             <constraint firstItem="THc-wT-K2e" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="bVB-iQ-3M0"/>

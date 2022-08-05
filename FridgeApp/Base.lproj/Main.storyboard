@@ -489,16 +489,62 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="YAE-eV-vbf">
                                 <rect key="frame" x="0.0" y="44" width="390" height="800"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dJG-DO-VsC">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T33-mT-NVT">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="50"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xIS-Ao-U3g">
+                                                <rect key="frame" x="156.33333333333334" y="14.333333333333337" width="77.666666666666657" height="21.666666666666671"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.22745098039215686" green="0.054901960784313725" blue="0.10980392156862745" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="q5l-rg-RKL"/>
+                                            <constraint firstItem="xIS-Ao-U3g" firstAttribute="centerX" secondItem="T33-mT-NVT" secondAttribute="centerX" id="5na-Vr-EmO"/>
+                                            <constraint firstItem="xIS-Ao-U3g" firstAttribute="centerY" secondItem="T33-mT-NVT" secondAttribute="centerY" id="IIm-zn-Mn1"/>
+                                            <constraint firstAttribute="height" constant="50" id="tz9-4B-k7j"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="search" enablesReturnKeyAutomatically="YES"/>
-                                    </textField>
+                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="RqH-YP-pFL">
+                                        <rect key="frame" x="0.0" y="50" width="390" height="50"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dJG-DO-VsC">
+                                                <rect key="frame" x="0.0" y="0.0" width="243" height="50"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="q5l-rg-RKL"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="search" enablesReturnKeyAutomatically="YES"/>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VS0-nZ-vYH" userLabel="clear">
+                                                <rect key="frame" x="249" y="0.0" width="100" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="q7c-7q-NHu"/>
+                                                </constraints>
+                                                <state key="normal" title="Clear"/>
+                                                <connections>
+                                                    <action selector="onClearTap:" destination="bCn-p7-kz9" eventType="touchUpInside" id="Byg-8j-n7x"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0rG-xA-MXb" userLabel="sort button">
+                                                <rect key="frame" x="355" y="14" width="35" height="22"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="35" id="FJn-0N-lud"/>
+                                                </constraints>
+                                                <state key="normal" image="list.dash" catalog="system"/>
+                                                <connections>
+                                                    <action selector="onSortTap:" destination="bCn-p7-kz9" eventType="touchUpInside" id="fls-gn-J0t"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="VS0-nZ-vYH" firstAttribute="top" secondItem="RqH-YP-pFL" secondAttribute="top" id="ASw-vj-Zgs"/>
+                                        </constraints>
+                                    </stackView>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ibp-JN-4Pb">
-                                        <rect key="frame" x="0.0" y="50" width="390" height="750"/>
+                                        <rect key="frame" x="0.0" y="100" width="390" height="700"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="100.5" id="B8b-PU-qNr" customClass="ItemCellView" customModule="FridgeApp" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="390" height="100.5"/>
@@ -574,13 +620,8 @@
                                     </tableView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="dJG-DO-VsC" firstAttribute="top" secondItem="YAE-eV-vbf" secondAttribute="top" id="Bku-eu-F1P"/>
-                                    <constraint firstItem="dJG-DO-VsC" firstAttribute="leading" secondItem="YAE-eV-vbf" secondAttribute="leading" id="Nbw-TP-Ljn"/>
                                     <constraint firstAttribute="trailing" secondItem="Ibp-JN-4Pb" secondAttribute="trailing" id="Pd9-mt-cdy"/>
-                                    <constraint firstItem="Ibp-JN-4Pb" firstAttribute="top" secondItem="dJG-DO-VsC" secondAttribute="bottom" id="TQx-Xl-Jxk"/>
-                                    <constraint firstItem="Ibp-JN-4Pb" firstAttribute="top" secondItem="dJG-DO-VsC" secondAttribute="bottom" id="mQl-1D-eQr"/>
                                     <constraint firstItem="Ibp-JN-4Pb" firstAttribute="leading" secondItem="YAE-eV-vbf" secondAttribute="leading" id="oYg-os-4AJ"/>
-                                    <constraint firstAttribute="trailing" secondItem="dJG-DO-VsC" secondAttribute="trailing" id="vaq-dO-oO8"/>
                                     <constraint firstAttribute="bottom" secondItem="Ibp-JN-4Pb" secondAttribute="bottom" id="wJb-a2-lvH"/>
                                 </constraints>
                             </stackView>
@@ -596,6 +637,8 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Grocery" image="house" catalog="system" id="htw-0V-v9X"/>
                     <connections>
+                        <outlet property="dropDownView" destination="T33-mT-NVT" id="Rgq-tT-ZNu"/>
+                        <outlet property="lblCategory" destination="xIS-Ao-U3g" id="KKg-oD-tCI"/>
                         <outlet property="productTableView" destination="Ibp-JN-4Pb" id="dvU-l7-EpM"/>
                         <outlet property="txtSearch" destination="dJG-DO-VsC" id="WG1-4n-K8E"/>
                     </connections>
@@ -609,6 +652,7 @@
         <image name="barcode" catalog="system" width="128" height="93"/>
         <image name="cart" catalog="system" width="128" height="102"/>
         <image name="house" catalog="system" width="128" height="106"/>
+        <image name="list.dash" catalog="system" width="128" height="85"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

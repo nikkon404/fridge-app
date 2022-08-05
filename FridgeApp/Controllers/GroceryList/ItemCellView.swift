@@ -2,7 +2,7 @@
 //  ItemCellView.swift
 //  FridgeApp
 //
-//  Created by user206148 on 8/4/22.
+//  Created by Aayush Subedi on 8/4/22.
 //
 
 import UIKit

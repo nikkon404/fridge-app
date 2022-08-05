@@ -32,3 +32,12 @@ class Constants{
     static let onDataChanged = "dataChanged"
     
 }
+
+enum SortBy: String {
+    case expDsc = "expiryDate DESC"
+    case expAsc = "expiryDate ASC"
+    case addedLast = "dateAdded DESC"
+    case addedFirst = "dateAdded ASC"
+}
+
+

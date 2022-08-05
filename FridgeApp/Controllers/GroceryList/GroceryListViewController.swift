@@ -2,50 +2,133 @@
 //  ProductListViewController.swift
 //  FridgeApp
 //
-//  Created by Khushneet on 10/07/22.
-//  Modified by Aayush Subedi
+//  Created by Aayush Subedi
 //
 
 import UIKit
+import DropDown
 
 class GroceryListViewController: UIViewController {
     
-
-    public var items = [GroceryItem]()
     
-	
-	static private let kTableCellID = "ItemCellView"
-	
-	@IBOutlet weak var productTableView: UITableView!
+    public var items = [GroceryItem]()
+    var menu = DropDown()
+    
+    var selectedCat = ""
+    var selectedSort =  SortBy.expAsc
+    
+    
+    @IBOutlet weak var lblCategory: UILabel!
+    
+    
+    static private let kTableCellID = "ItemCellView"
+    
+    @IBOutlet weak var productTableView: UITableView!
     
     
     @IBOutlet weak var txtSearch: UITextField!
     
+    @IBOutlet weak var dropDownView: UIView!
     
-	override func viewDidLoad() {
+    override func viewDidLoad() {
         
-		super.viewDidLoad()
+        super.viewDidLoad()
         txtSearch.delegate = self
+      
+        refreshData()
+        setupMenu()
+        productTableView.delegate = self
+        productTableView.dataSource = self
         
-        
-        self.productTableView.register(ItemCellView.self, forCellReuseIdentifier: GroceryListViewController.kTableCellID)
-        self.items = DatabaseService.getAllGroceryItems()
-
-		
-		productTableView.delegate = self
-		productTableView.dataSource = self
-		
-		productTableView.register(UITableViewCell.self,
-										  forCellReuseIdentifier: GroceryListViewController.kTableCellID)
+        productTableView.register(UITableViewCell.self,
+                                  forCellReuseIdentifier: GroceryListViewController.kTableCellID)
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.refreshData), name: NSNotification.Name(rawValue: Constants.onDataChanged), object: nil)
-
-	}
+    }
     
-    @objc  func refreshData(searchText: String?){
-        self.items = DatabaseService.getAllGroceryItems(searchText: searchText)
+    
+    func setupMenu()  {
+        
+        var options = Constants.categories
+        options.insert("All", at: 0)
+        
+        lblCategory.text = "Category: All"
+        
+        menu.dataSource = options
+        menu.selectionAction = { (index: Int, item: String) in
+            self.lblCategory.text = "Category: "+item
+            
+            self.selectedCat = index == 0 ? "" : item
+            self.refreshData()
+        }
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
+        dropDownView.addGestureRecognizer(tap)
+        
+        menu.anchorView = dropDownView
+        
+    }
+    //call back for when dropdown is pressed
+    @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {
+        // handling code
+        menu.show()
+    }
+    
+    @objc  func refreshData(){
+        self.items = DatabaseService.getAllGroceryItems(searchText: txtSearch.text ?? "", orderBy : selectedSort ,  category: selectedCat )
         productTableView.reloadData();
     }
+    
+    
+    
+    
+    @IBAction func onClearTap(_ sender: Any) {
+        txtSearch.text = ""
+        self.view.endEditing(true)
+        self.refreshData()
+    }
+    
+    
+    @IBAction func onSortTap(_ sender: Any) {
+        
+        //showing action sheet to let user select sort by
+        let imageSourceSelector = UIAlertController(title: nil, message: nil, preferredStyle:.actionSheet)
+        
+        let expFirst = UIAlertAction(title: "Expiring First", style: .default) { (action) in
+            self.selectedSort = SortBy.expAsc
+            self.refreshData()
+        }
+        let expLast = UIAlertAction(title: "Expiring last", style: .default) { (action) in
+            self.selectedSort = SortBy.expDsc
+            self.refreshData()
+        }
+        
+        let addedFirst = UIAlertAction(title: "Added First", style: .default) { (action) in
+            self.selectedSort = SortBy.addedFirst
+            self.refreshData()
+        }
+        
+        let adedLast = UIAlertAction(title: "Added Last", style: .default) { (action) in
+            self.selectedSort = SortBy.addedLast
+            self.refreshData()
+        }
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+        }
+        
+        // Adding the actions to  actionSheet
+        imageSourceSelector.addAction(expFirst)
+        imageSourceSelector.addAction(expLast)
+        imageSourceSelector.addAction(addedFirst)
+        imageSourceSelector.addAction(adedLast)
+        
+        imageSourceSelector.addAction(cancel)
+        
+        
+        // Present the action sheet
+        self.present(imageSourceSelector, animated: true,completion: nil)
+    }
+    
+    
+    
 }
 
 extension GroceryListViewController : UITableViewDelegate {
@@ -53,7 +136,7 @@ extension GroceryListViewController : UITableViewDelegate {
         let selected = items[indexPath.row]
         
         print(selected.dateAdded ?? "")
-    
+        
         //TODO: goto detail page
         if let vc = self.storyboard?.instantiateViewController(withIdentifier: "kItemDetailViewController") as? ItemDetailViewController {
             vc.item = selected
@@ -67,33 +150,33 @@ extension GroceryListViewController : UITableViewDelegate {
 }
 
 extension GroceryListViewController : UITableViewDataSource {
-
-	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		items.count
-	}
-	
-	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        items.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = self.productTableView.dequeueReusableCell(withIdentifier: "cell") as! ItemCellView
         
-     
+        
         cell.img?.image = Converter.base64StringToImage(imageBase64String:  items[indexPath.row].base64Img ?? "")
         
         cell.lblTitle?.text = items[indexPath.row].title ?? ""
         cell.lblSubtite?.text = items[indexPath.row].category ?? ""
-        cell.lblBottom?.text =  "expires in " + String(describing: Converter.daysBetweenDates(endDate: items[indexPath.row].expiryDate!)) + " days"
-      
-
+        cell.lblBottom?.text =  "expires in " + String(describing: Converter.daysBetwee
+        
+        
         return cell
-	}
+    }
 }
 
 
 extension GroceryListViewController : UITextFieldDelegate {
     // Code to dismiss keyboard after return
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.view.endEditing(true)
-        self.refreshData(searchText: textField.text)
+        self.view.endEditing(true)nDates(endDate: items[indexPath.row].expiryDate!)) + " days"
+        self.refreshData()
         return false
     }
 }

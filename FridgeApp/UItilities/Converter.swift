@@ -47,7 +47,8 @@ class Converter{
         return nil
     }
     
-    //get difference between dates in days
+    ///get difference between dates in days -
+    /// x days from now
     static func daysBetweenDates( endDate: Date) -> Int {
         let calendar = Calendar.current
         let components = calendar.dateComponents([Calendar.Component.day], from: Date(), to: endDate)
