@@ -44,12 +44,18 @@ class AddItemFormVC: UIViewController{
             let success =  DatabaseService.insertGrocery(item: &item!)
             if(success)
             {
+                NotificationService.register(item:  item!)
+
                 self.dismiss(animated: true, completion: nil)
                 self.tabBarController?.selectedIndex = 0
                 showAlert("Info","Item added successfully!")
+                
+                
 
-                NotificationCenter.default.post(name: NSNotification.Name(rawValue: Constants.onDataChanged), object: nil)
+              //  NotificationCenter.default.post(name: NSNotification.Name(rawValue: Constants.onDataChanged), object: nil)
 
+                print("success")
+                
             }
             else{
                 showAlert("Error","Failed to save grocery item")

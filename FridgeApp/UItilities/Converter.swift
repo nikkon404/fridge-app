@@ -30,5 +30,28 @@ class Converter{
         let image = UIImage(data: imageData!)
         return image!
     }
+    
+    
+    //generate bar code image from string
+    //src - https://developer.apple.com/forums/thread/77633
+    static func generateBarcode(from string: String) -> UIImage? {
+        let data = string.data(using: String.Encoding.ascii)
+        
+        if let filter = CIFilter(name: "CICode128BarcodeGenerator") {
+            filter.setValue(data, forKey: "inputMessage")
+            if let output = filter.outputImage {
+                return UIImage(ciImage: output)
+            }
+        }
+        
+        return nil
+    }
+    
+    //get difference between dates in days
+    static func daysBetweenDates( endDate: Date) -> Int {
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([Calendar.Component.day], from: Date(), to: endDate)
+        return components.day!
+    }
 }
 

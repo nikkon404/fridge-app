@@ -3,6 +3,7 @@
 //  FridgeApp
 //
 //  Created by Khushneet on 31/07/22.
+//  Updated by Aayush Subedi
 //
 
 import Foundation
@@ -11,6 +12,7 @@ import UserNotifications
 class NotificationService: NSObject {
 	static private(set) var authorized = false
 	
+    //initializ notification service and ask for permission
 	static func Authorize(with delegate: UNUserNotificationCenterDelegate) {
 		let notifCenter = UNUserNotificationCenter.current()
 		//Permission for request alert, soud and badge
@@ -22,35 +24,29 @@ class NotificationService: NSObject {
 		}
 	}
 	
-	static func register(for product:GroceryItem, before days:Int) {
+    
+    //schedule notification for the given GroceryItem
+    static func register(item: GroceryItem) {
 		if (!NotificationService.authorized) {
 			print("Not authorized")
 			return
 		}
-		
-		let notifContent = UNMutableNotificationContent()
-		notifContent.title = NSString.localizedUserNotificationString(forKey: product.title ?? "", arguments: nil)
-		notifContent.body = NSString.localizedUserNotificationString(forKey: "Grocery about to expire", arguments: nil)
-		notifContent.sound = UNNotificationSound.default
-		notifContent.badge = 1
-		notifContent.userInfo = ["kProduct" : product]
-	
-		var dateInfo = Calendar.current.dateComponents([.year, .month, .day], from: product.expiryDate!)
-		dateInfo.hour = 9 //Put your hour
-		dateInfo.minute = 0 //Put your minutes
+        let content = UNMutableNotificationContent()
+        content.title =  item.title ?? ""
+        content.subtitle = "Grocery is going to expire!"
+        content.sound = UNNotificationSound.default
+        
+        // show this notification 10 seconds from now
+       // let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 15, repeats: false)
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: item.notificationTime!.timeIntervalSinceNow, repeats: false)
+        
+        // choose a random identifier
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        
+        // add the  request
+        UNUserNotificationCenter.current().add(request)
+        return
+    }
 
-		//Receive notification after 5 sec
-//		let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-		let trigger = UNCalendarNotificationTrigger(dateMatching: dateInfo, repeats: false)
-		let request = UNNotificationRequest(identifier: (String(describing: product.id)), content: notifContent, trigger: trigger)
-		let center = UNUserNotificationCenter.current()
-		
-		center.add(request) { (error) in
-			if let error = error {
-				print("Error \(error.localizedDescription)")
-			} else{
-				print("send!!")
-			}
-		}
-	}
 }

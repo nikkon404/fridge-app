@@ -123,8 +123,15 @@ isChecked INTEGER);
 		
 	}
 	
-	static func getAllGroceryItems() -> [GroceryItem]
-	{ let query = "SELECT * FROM \(Constants.groceryTable);"
+	static func getAllGroceryItems(searchText: String? = nil) -> [GroceryItem]
+	{
+        
+        var whereFilter = "1 = 1"
+        if(searchText != nil)
+        {
+            whereFilter = "title LIKE '%" + searchText! + "%'"
+        }
+        let query = "SELECT * FROM \(Constants.groceryTable) WHERE \(whereFilter);"
 		var queryStatement: OpaquePointer? = nil
 		var data : [GroceryItem] = []
 		if sqlite3_prepare_v2(db, query, -1, &queryStatement, nil) == SQLITE_OK {
