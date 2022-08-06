@@ -55,20 +55,32 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="iW4-FN-psC" customClass="RootTabBarController" customModule="FridgeApp" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Vmj-mX-Xf5"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gX6-mk-gp8">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="gX6-mk-gp8">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.22745098039215686" green="0.058823529411764705" blue="0.11372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
+                        <outlet property="haha" destination="zhB-vS-YXL" id="9Mk-5q-QPb"/>
                         <segue destination="bCn-p7-kz9" kind="relationship" relationship="viewControllers" id="vfA-SA-lvo"/>
                         <segue destination="QhW-EJ-ofo" kind="relationship" relationship="viewControllers" id="1xB-7k-jcJ"/>
                         <segue destination="7zg-pe-jly" kind="relationship" relationship="viewControllers" id="tYG-Tb-Lem"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="enr-by-wyb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleAspectFill" id="zhB-vS-YXL" customClass="WARDoorView" customModule="WARDoorView">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <viewLayoutGuide key="safeArea" id="AAu-b8-KDd"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="image" keyPath="leftImage" value="left-door"/>
+                        <userDefinedRuntimeAttribute type="image" keyPath="rightImage" value="right-door"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
             </objects>
-            <point key="canvasLocation" x="928.98550724637687" y="88.392857142857139"/>
+            <point key="canvasLocation" x="915" y="59"/>
         </scene>
         <!--Barcode Scanner View Controller-->
         <scene sceneID="UnX-cA-Vgu">
@@ -410,7 +422,7 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AIF-Pk-V1K">
                                 <rect key="frame" x="0.0" y="44" width="390" height="300"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="FmD-Bt-aKG"/>
+                                    <constraint firstAttribute="height" constant="300" id="zmB-0p-UwA"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zFd-nL-Iyk" userLabel="title">
@@ -440,30 +452,32 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sH3-aG-OOa" userLabel="bar code">
                                 <rect key="frame" x="0.0" y="733" width="390" height="77"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="77" id="h53-qu-9q5"/>
+                                    <constraint firstAttribute="height" constant="77" id="uRq-YQ-Hgy"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="MhD-rR-PT2"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="AIF-Pk-V1K" firstAttribute="leading" secondItem="sH3-aG-OOa" secondAttribute="leading" id="6aP-cU-f3S"/>
-                            <constraint firstItem="AIF-Pk-V1K" firstAttribute="trailing" secondItem="sH3-aG-OOa" secondAttribute="trailing" id="9CY-pH-m96"/>
-                            <constraint firstItem="TM3-rD-rcE" firstAttribute="leading" secondItem="MhD-rR-PT2" secondAttribute="leading" constant="10" id="Ivg-6Z-3IH"/>
-                            <constraint firstItem="sH3-aG-OOa" firstAttribute="bottom" secondItem="MhD-rR-PT2" secondAttribute="bottom" id="KOm-gg-7nc"/>
-                            <constraint firstItem="MhD-rR-PT2" firstAttribute="trailing" secondItem="Vr4-B2-2fh" secondAttribute="trailing" constant="155" id="QEd-ju-S7Y"/>
-                            <constraint firstItem="TM3-rD-rcE" firstAttribute="leading" secondItem="Vr4-B2-2fh" secondAttribute="leading" id="S4C-ja-88W"/>
-                            <constraint firstItem="zFd-nL-Iyk" firstAttribute="top" secondItem="AIF-Pk-V1K" secondAttribute="bottom" constant="8" symbolic="YES" id="TGv-GU-lRR"/>
-                            <constraint firstAttribute="trailing" secondItem="AIF-Pk-V1K" secondAttribute="trailing" id="Vy3-bN-DXW"/>
-                            <constraint firstItem="TM3-rD-rcE" firstAttribute="top" secondItem="zFd-nL-Iyk" secondAttribute="bottom" constant="11" id="boR-n2-4eX"/>
-                            <constraint firstItem="AIF-Pk-V1K" firstAttribute="top" secondItem="MhD-rR-PT2" secondAttribute="top" id="n6d-el-w2O"/>
-                            <constraint firstItem="Vr4-B2-2fh" firstAttribute="leading" secondItem="lh0-Ca-Cr9" secondAttribute="leading" id="nxm-fp-V5u"/>
-                            <constraint firstItem="AIF-Pk-V1K" firstAttribute="leading" secondItem="t1D-w3-sVT" secondAttribute="leading" id="oZi-MF-4Qm"/>
-                            <constraint firstItem="Vr4-B2-2fh" firstAttribute="top" secondItem="TM3-rD-rcE" secondAttribute="bottom" constant="19" id="pwQ-aT-Rgd"/>
-                            <constraint firstItem="lh0-Ca-Cr9" firstAttribute="top" secondItem="Vr4-B2-2fh" secondAttribute="bottom" constant="8" symbolic="YES" id="t5j-Ud-p4k"/>
-                            <constraint firstItem="Vr4-B2-2fh" firstAttribute="trailing" secondItem="lh0-Ca-Cr9" secondAttribute="trailing" id="ted-xV-jPU"/>
-                            <constraint firstItem="AIF-Pk-V1K" firstAttribute="centerX" secondItem="zFd-nL-Iyk" secondAttribute="centerX" id="xBj-sQ-v81"/>
-                            <constraint firstItem="zFd-nL-Iyk" firstAttribute="centerX" secondItem="TM3-rD-rcE" secondAttribute="centerX" id="xOu-TV-baX"/>
+                            <constraint firstItem="AIF-Pk-V1K" firstAttribute="top" secondItem="MhD-rR-PT2" secondAttribute="top" id="18z-07-sHk"/>
+                            <constraint firstItem="zFd-nL-Iyk" firstAttribute="top" secondItem="AIF-Pk-V1K" secondAttribute="bottom" constant="8" symbolic="YES" id="7Bg-Yl-62s"/>
+                            <constraint firstItem="Vr4-B2-2fh" firstAttribute="top" secondItem="TM3-rD-rcE" secondAttribute="bottom" constant="19" id="7Oc-WS-LMI"/>
+                            <constraint firstItem="AIF-Pk-V1K" firstAttribute="leading" secondItem="MhD-rR-PT2" secondAttribute="leading" id="DCc-Zf-Rzm"/>
+                            <constraint firstItem="AIF-Pk-V1K" firstAttribute="trailing" secondItem="MhD-rR-PT2" secondAttribute="trailing" id="OzT-pX-NRA"/>
+                            <constraint firstItem="Vr4-B2-2fh" firstAttribute="leading" secondItem="TM3-rD-rcE" secondAttribute="leading" id="QNH-eE-Ne4"/>
+                            <constraint firstItem="MhD-rR-PT2" firstAttribute="trailing" secondItem="TM3-rD-rcE" secondAttribute="trailing" constant="10" id="QR8-xd-6HO"/>
+                            <constraint firstItem="MhD-rR-PT2" firstAttribute="trailing" secondItem="Vr4-B2-2fh" secondAttribute="trailing" constant="155" id="VzU-b9-s3e"/>
+                            <constraint firstItem="zFd-nL-Iyk" firstAttribute="centerX" secondItem="MhD-rR-PT2" secondAttribute="centerX" id="cQB-mx-RL6"/>
+                            <constraint firstItem="lh0-Ca-Cr9" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="MhD-rR-PT2" secondAttribute="leading" id="gfP-b1-UQA"/>
+                            <constraint firstItem="MhD-rR-PT2" firstAttribute="bottom" secondItem="sH3-aG-OOa" secondAttribute="bottom" id="hNd-36-Gzb"/>
+                            <constraint firstItem="Vr4-B2-2fh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="MhD-rR-PT2" secondAttribute="leading" id="hj4-2i-dqV"/>
+                            <constraint firstItem="MhD-rR-PT2" firstAttribute="trailing" secondItem="lh0-Ca-Cr9" secondAttribute="trailing" constant="155" id="jL6-8g-qSf"/>
+                            <constraint firstItem="Vr4-B2-2fh" firstAttribute="leading" secondItem="lh0-Ca-Cr9" secondAttribute="leading" id="m71-pE-JBX"/>
+                            <constraint firstItem="MhD-rR-PT2" firstAttribute="trailing" secondItem="sH3-aG-OOa" secondAttribute="trailing" id="opr-Fz-KiP"/>
+                            <constraint firstItem="TM3-rD-rcE" firstAttribute="top" secondItem="AIF-Pk-V1K" secondAttribute="bottom" constant="40" id="qZp-Qc-NI4"/>
+                            <constraint firstItem="sH3-aG-OOa" firstAttribute="leading" secondItem="MhD-rR-PT2" secondAttribute="leading" id="r54-la-uFK"/>
+                            <constraint firstItem="lh0-Ca-Cr9" firstAttribute="top" secondItem="Vr4-B2-2fh" secondAttribute="bottom" constant="8" symbolic="YES" id="tFk-mH-d3z"/>
+                            <constraint firstItem="TM3-rD-rcE" firstAttribute="leading" secondItem="MhD-rR-PT2" secondAttribute="leading" constant="10" id="zC8-ko-HRE"/>
                         </constraints>
                     </view>
                     <connections>
@@ -677,7 +691,9 @@
         <image name="barcode" catalog="system" width="128" height="93"/>
         <image name="cart" catalog="system" width="128" height="102"/>
         <image name="house" catalog="system" width="128" height="106"/>
+        <image name="left-door" width="244" height="586"/>
         <image name="list.dash" catalog="system" width="128" height="85"/>
+        <image name="right-door" width="244" height="586"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
