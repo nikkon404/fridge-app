@@ -20,8 +20,12 @@ class FetchProductViewController: UIViewController {
 		//fetch data
 		ApiService.fetchData(barCode: barcodeStr, completion: { result in
 			//disliss loading
-			DispatchQueue.main.async {
-				self.dismiss(animated: true, completion: nil)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.dismiss(animated: false, completion: nil)
+
+                self.navigationController?.popToRootViewController(animated: true)
+
+                
 				
 				switch (result) {
 				case .success(let data):
@@ -68,6 +72,6 @@ class FetchProductViewController: UIViewController {
 		loadingIndicator.startAnimating();
 		
 		alert.view.addSubview(loadingIndicator)
-		present(alert, animated: true, completion: nil)
+		present(alert, animated: false, completion: nil)
 	}
 }

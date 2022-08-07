@@ -39,7 +39,7 @@ class GroceryListViewController: UIViewController {
         super.viewDidLoad()
         
         txtSearch.delegate = self
-      
+        
         refreshData()
         setupMenu()
         productTableView.delegate = self
@@ -161,12 +161,15 @@ extension GroceryListViewController : UITableViewDataSource {
         items.count
     }
     
-     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            print("test")
-           items.remove(at: indexPath.row)
-            DatabaseService.deleteGroceryItem(id: items[indexPath.row].id ?? 0)
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            _ = DatabaseService.deleteGroceryItem(id: items[indexPath.row].id ?? 0)
+          
+            items.remove(at: indexPath.row)
+            self.refreshData()
+            
+            
+            
         } else if editingStyle == .insert {
             
         }

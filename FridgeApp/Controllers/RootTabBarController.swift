@@ -20,7 +20,7 @@ class RootTabBarController: UITabBarController {
 //        customView.backgroundColor = UIColor.red     //give color to the view
 //        customView.center = self.view.center
         let xPosition = self.view.frame.origin.x
-        let yPosition = self.view.frame.origin.y - 20 // Slide Up - 20px
+        let yPosition = self.view.frame.origin.y 
         
         let width = self.view.frame.size.width
         let height = self.view.frame.size.height
@@ -29,9 +29,9 @@ class RootTabBarController: UITabBarController {
 
         self.view.addSubview(haha)
 
-        let seconds = 1.0
+        let seconds = 0.6
         DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
-            self.haha.open(-90.0, duration: 1.3, delay: 0, completion:  {})
+            self.haha.open(-90.0, duration: 0.6, delay: 0, completion:  {})
         }
         
         

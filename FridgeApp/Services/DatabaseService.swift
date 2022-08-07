@@ -20,19 +20,27 @@ class DatabaseService {
 	
 	///main method to create database
 	private static func databaseCreate() -> OpaquePointer? {
-		let filePath = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathExtension(Constants.databaseName)
-		
-		var db : OpaquePointer? = nil
-		
-		if sqlite3_open(filePath.path, &db) != SQLITE_OK {
-			print("There is error in creating DB")
-			return nil
-		}else {
-			print("Database has been created with path \(Constants.databaseName)")
-			return db
-		}
-	}
-	
+        // find all possible documents directories for this user
+               let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+
+               // just send back the first one, which ought to be the only one
+        let docDir =  paths[0]
+        let filePath = docDir.appendingPathComponent(Constants.databaseName);
+
+                 
+                 var dbPointer : OpaquePointer? = nil
+                 
+                 if sqlite3_open(filePath.path, &dbPointer) != SQLITE_OK {
+                     print("There is error in creating DB")
+                 
+                     return nil
+                 }else {
+                    // print("Database has been created with path \(path)")
+                     return dbPointer
+                 }
+               
+               
+             }
 	//method to create gorcey table
 	private static func createGroceryTable(){
 		let query = """

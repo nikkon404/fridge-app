@@ -114,6 +114,9 @@ class ApiService {
 							item.category = ""
 							result = .success(data: item)
 						}
+                        else{
+                            result = .failure(error: NSError(domain: "No item found", code: 404, userInfo: nil))
+                        }
 					}
 					catch let parseErr {
 						print("failed to decode json:", parseErr)

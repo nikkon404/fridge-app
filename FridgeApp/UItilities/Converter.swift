@@ -15,8 +15,16 @@ class Converter{
     ///Method that converts imageurl to base64 string
     static func onlineImageToBase64(imgUrl: String) -> String?  {
         let url = NSURL(string: imgUrl);
-        let imageData = try? NSData(contentsOf: url! as URL,options: NSData.ReadingOptions.mappedIfSafe)
-        return imageData?.base64EncodedString();
+        do {
+            let imageData = try NSData(contentsOf: url! as URL,options: NSData.ReadingOptions.mappedIfSafe)
+            return imageData.base64EncodedString();
+        }
+        catch let err {
+            print(err.localizedDescription)
+            return nil
+        }
+    
+        
     }
     
     ///Method that converts uiimage to base64 string
