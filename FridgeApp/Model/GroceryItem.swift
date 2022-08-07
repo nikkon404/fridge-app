@@ -50,3 +50,12 @@ struct GroceryItemModel : Codable {
 		return items[index]
 	}
 }
+
+extension Date {
+   func getFormattedDate() -> String {
+       let format = "MMMM, dd yyyy"
+        let dateformat = DateFormatter()
+        dateformat.dateFormat = format
+        return dateformat.string(from: self)
+    }
+}

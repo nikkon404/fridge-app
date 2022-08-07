@@ -28,7 +28,7 @@ class ItemCellView : UITableViewCell {
         // Initialization code
         img?.layer.cornerRadius = (img?.frame.size.width ?? 0.0) / 2
         img?.clipsToBounds = true
-        img?.layer.borderWidth = 1.8
+        img?.layer.borderWidth = 0.7
         img?.layer.borderColor = UIColor.black.cgColor
     }
     

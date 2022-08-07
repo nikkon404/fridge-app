@@ -60,7 +60,9 @@ class Converter{
     static func daysBetweenDates( endDate: Date) -> Int {
         let calendar = Calendar.current
         let components = calendar.dateComponents([Calendar.Component.day], from: Date(), to: endDate)
-        return components.day!
+        let day = components.day!
+        //day  = day < 0 ? 0 - day : day
+        return day
     }
 }
 
