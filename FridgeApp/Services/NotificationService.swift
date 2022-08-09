@@ -9,6 +9,8 @@
 import Foundation
 import UserNotifications
 
+
+//service class handle notifications
 class NotificationService: NSObject {
 	static private(set) var authorized = false
 	

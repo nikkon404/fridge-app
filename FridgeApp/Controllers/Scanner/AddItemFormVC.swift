@@ -7,6 +7,8 @@
 
 import UIKit
 
+
+// class is responsible for the controlling the Form View for grocery data input
 class AddItemFormVC: UIViewController{
     var item : GroceryItem?
     
@@ -55,12 +57,10 @@ class AddItemFormVC: UIViewController{
                 showAlert("Info","Item added successfully!")
                 
                 
-                GroceryListViewController.instance.refreshData()
+                GroceryListViewController.instance?.refreshData()
                 
-                
-                //  NotificationCenter.default.post(name: NSNotification.Name(rawValue: Constants.onDataChanged), object: nil)
-                
-                print("success")
+                SummaryViewController.instance?.setupData()
+
                 
             }
             else{
@@ -72,7 +72,7 @@ class AddItemFormVC: UIViewController{
     
     public func setupView()  {
         reminderDateTimePicker.minimumDate = Date()
-        expDatepicker.minimumDate = Date()
+      //  expDatepicker.minimumDate = Date()
         
         txtTitle.text = item?.title ?? ""
         txtDescription.text = item?.description ?? ""

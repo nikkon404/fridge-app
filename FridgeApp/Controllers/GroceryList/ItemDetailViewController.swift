@@ -7,6 +7,7 @@
 
 import UIKit
 
+//Class responsible for controlling detail vew of grocery item
 class ItemDetailViewController: UIViewController {
     
     

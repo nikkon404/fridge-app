@@ -7,6 +7,8 @@
 
 import UIKit
 
+
+//class to manually fetch barcode data by enteing data in txt box
 class FetchProductViewController: UIViewController {
 	@IBOutlet weak var nameLabel: UILabel!
 	

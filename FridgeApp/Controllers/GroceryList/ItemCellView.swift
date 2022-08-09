@@ -6,6 +6,8 @@
 //
 
 import UIKit
+
+///custom Class responsible fore laying out prototype cells in table view
 class ItemCellView : UITableViewCell {
     
     @IBOutlet weak var img: UIImageView!

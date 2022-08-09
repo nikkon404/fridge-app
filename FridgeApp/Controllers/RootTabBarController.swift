@@ -1,24 +1,22 @@
 //
 //  RootTabBarController.swift
 //  FridgeApp
-//
-//  Created by Khushneet on 10/07/22.
+// Created by Khushneet
+//  Modified by Aayush Subedi
 //
 
 import UIKit
 import WARDoorView
+
+
+
+// class to control parent tab view
 class RootTabBarController: UITabBarController {
     
     @IBOutlet var haha: WARDoorView!
     
 	override func viewDidLoad() {
 		super.viewDidLoad()
-//        var customView = WARDoorView()
-//        
-//    
-//        customView.frame = CGRect.init(x: 0, y: 0, width: 100, height: 200)
-//        customView.backgroundColor = UIColor.red     //give color to the view
-//        customView.center = self.view.center
         let xPosition = self.view.frame.origin.x
         let yPosition = self.view.frame.origin.y 
         
@@ -33,9 +31,6 @@ class RootTabBarController: UITabBarController {
         DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
             self.haha.open(-90.0, duration: 0.6, delay: 0, completion:  {})
         }
-        
-        
-    //self.view.addSubview( haha)
     }
 
 	override var shouldAutorotate: Bool {

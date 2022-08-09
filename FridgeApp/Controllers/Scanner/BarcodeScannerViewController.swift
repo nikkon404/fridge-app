@@ -7,7 +7,9 @@
 
 import UIKit
 import AVFoundation
-	
+
+
+//class is responsible for scanning bar code and displaying camera view
 class BarcodeScannerViewController: UIViewController {
 	var captureSession: AVCaptureSession!
 	var previewLayer: AVCaptureVideoPreviewLayer!

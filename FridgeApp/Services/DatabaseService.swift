@@ -8,6 +8,9 @@
 import Foundation
 import SQLite3
 
+
+//service class to create sqlite database
+// Inserts, Gets and deletes grocery data
 class DatabaseService {
 	private static var db : OpaquePointer?
 	
@@ -15,7 +18,6 @@ class DatabaseService {
 	static func initalize() {
 		db = databaseCreate()
 		createGroceryTable()
-		createShoppingTable()
 	}
 	
 	///main method to create database
@@ -23,7 +25,6 @@ class DatabaseService {
         // find all possible documents directories for this user
                let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
 
-               // just send back the first one, which ought to be the only one
         let docDir =  paths[0]
         let filePath = docDir.appendingPathComponent(Constants.databaseName);
 
@@ -61,17 +62,8 @@ img, TEXT);
 		
 	}
 	
-	//method to create shopping table
-	private static func createShoppingTable() {
-		let query = """
-CREATE TABLE IF NOT EXISTS \(Constants.shoppingListTable) (
-id INTEGER PRIMARY KEY,
-title TEXT,
-isChecked INTEGER);
-"""
-		createTable(tableName:Constants.shoppingListTable, query: query)
-	}
-	
+
+    //executes sql to create table
 	private static func createTable(tableName: String, query: String )  {
 		
 		var statement : OpaquePointer? = nil
@@ -130,7 +122,11 @@ isChecked INTEGER);
 		
 	}
 	
-    static func getAllGroceryItems(searchText: String, orderBy: SortBy,  category: String) -> [GroceryItem]
+    
+    ///returns list of grocery items
+    //filters = text, category
+    //order by - expiry date or date added
+    static func getAllGroceryItems(searchText: String = "", orderBy: SortBy,  category: String) -> [GroceryItem]
 	{
         let whereFilter: String = "title LIKE '%\(searchText)%'" + "AND category LIKE '%\(category)%'"
         
@@ -185,12 +181,8 @@ isChecked INTEGER);
 	static func deleteGroceryItem(id: Int) -> Bool{
 		return deleteByID(id: id, tableName: Constants.groceryTable)
 	}
-	
-	static func deleteShoppingItem(id: Int) -> Bool{
-		return deleteByID(id: id, tableName: Constants.shoppingListTable)
-	}
-	
-	
+		
+    //execute det=lete query
 	private static func deleteByID(id:Int, tableName: String) -> Bool {
 		var success = false;
 		let query = "DELETE FROM \(tableName) WHERE Id = ?;"

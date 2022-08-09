@@ -8,10 +8,12 @@
 import UIKit
 import DropDown
 
+
+//class responsible for showing list of grocery items in a table view
 class GroceryListViewController: UIViewController {
     
     //making it singleton
-    static var instance: GroceryListViewController!
+    static var instance: GroceryListViewController?
     
     
     public var items = [GroceryItem]()
@@ -35,8 +37,11 @@ class GroceryListViewController: UIViewController {
     
     override func viewDidLoad() {
         
+        GroceryListViewController.instance = self
         
         super.viewDidLoad()
+        
+        GroceryListViewController.instance = self
         
         txtSearch.delegate = self
         

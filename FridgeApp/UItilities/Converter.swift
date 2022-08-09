@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 
+//This class contans static helper methods for various conversions
 class Converter{
     //Author - user3763002
     //ref url - https://stackoverflow.com/questions/2782454/can-i-load-a-uiimage-from-a-url

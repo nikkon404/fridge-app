@@ -8,6 +8,7 @@ target 'FridgeApp' do
   # Pods for FridgeApp
 pod 'DropDown'
 pod "WARDoorView"
+pod "Charts"
 
 
 
