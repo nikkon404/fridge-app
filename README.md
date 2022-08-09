@@ -1,5 +1,6 @@
 # fridge-app
 App that keeps track of your food
+
 ![image info](./FridgeApp/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@3x.png)
 
 ## Build and Run
