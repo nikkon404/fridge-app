@@ -173,7 +173,7 @@ extension GroceryListViewController : UITableViewDataSource {
             items.remove(at: indexPath.row)
             self.refreshData()
             
-            
+            SummaryViewController.instance?.setupData()
             
         } else if editingStyle == .insert {
             

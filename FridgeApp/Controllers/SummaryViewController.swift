@@ -22,7 +22,7 @@ class SummaryViewController: UIViewController, ChartViewDelegate {
     
     
     var barChart = BarChartView()
-    var pieChart = BarChartView()
+    var pieChart = PieChartView()
     
     var items = [GroceryItem]()
     
@@ -55,6 +55,9 @@ class SummaryViewController: UIViewController, ChartViewDelegate {
             
         }
         else {
+            barChart.removeFromSuperview()
+            pieChart.removeFromSuperview()
+            
             setupUpperChart()
             setupPieChart()
         }
@@ -171,7 +174,7 @@ class SummaryViewController: UIViewController, ChartViewDelegate {
     //method to create bar graph
     func setupPieChart ()
     {
-        let chart = PieChartView(frame: CGRect(x: 0, y: 0, width: pieView.frame.size.width - 10, height: pieView.frame.size.height - 10))
+         pieChart = PieChartView(frame: CGRect(x: 0, y: 0, width: pieView.frame.size.width - 10, height: pieView.frame.size.height - 10))
         
         
         let dictionary = Dictionary(grouping: items, by: { (element: GroceryItem) in
@@ -194,21 +197,23 @@ class SummaryViewController: UIViewController, ChartViewDelegate {
         
         set.colors = ChartColorTemplates.material()
         let data = PieChartData(dataSet: set)
-        chart.data = data
-        chart.noDataText = "Categories"
+        data.setValueFormatter(CustomIntFormatter())
+        pieChart.data = data
+        pieChart.noDataText = "Categories"
         // user interaction
-        chart.isUserInteractionEnabled = true
+        pieChart.isUserInteractionEnabled = true
         
-        chart.largeContentTitle = "Categories"
+        pieChart.largeContentTitle = "Categories"
         
         let d = Description()
         d.text = "Categories"
-        chart.chartDescription = d
-        chart.centerText = "Categories"
-        chart.holeRadiusPercent = 0.5
-        chart.transparentCircleColor = UIColor.clear
+        pieChart.chartDescription = d
+        pieChart.centerText = "Categories"
+        pieChart.holeRadiusPercent = 0.5
+        pieChart.transparentCircleColor = UIColor.clear
         
-        pieView.addSubview( chart)
+        
+        pieView.addSubview( pieChart)
         
         pieChart.animate(xAxisDuration: 1.0)
         pieChart.animate(yAxisDuration: 1.0)
