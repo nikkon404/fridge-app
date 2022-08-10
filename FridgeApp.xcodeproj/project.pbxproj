@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B20965028A33DC0009A13C1 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B20964F28A33DC0009A13C1 /* MapViewController.swift */; };
 		5D2062052891218900277017 /* FridgeApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5D2062032891218900277017 /* FridgeApp.xcdatamodeld */; };
 		5D2062092891232A00277017 /* ToDoListItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2062072891232A00277017 /* ToDoListItem+CoreDataClass.swift */; };
 		5D20620A2891232A00277017 /* ToDoListItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2062082891232A00277017 /* ToDoListItem+CoreDataProperties.swift */; };
@@ -37,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		258AAA987B64AB99573C3EAD /* Pods-FridgeApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FridgeApp.release.xcconfig"; path = "Target Support Files/Pods-FridgeApp/Pods-FridgeApp.release.xcconfig"; sourceTree = "<group>"; };
+		4B20964F28A33DC0009A13C1 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		5D2062042891218900277017 /* FridgeApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FridgeApp.xcdatamodel; sourceTree = "<group>"; };
 		5D2062072891232A00277017 /* ToDoListItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToDoListItem+CoreDataClass.swift"; sourceTree = "<group>"; };
 		5D2062082891232A00277017 /* ToDoListItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToDoListItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 				5D7BE934288E74C200E60CF7 /* ShoppingListViewController.swift */,
 				5D2062072891232A00277017 /* ToDoListItem+CoreDataClass.swift */,
 				5D2062082891232A00277017 /* ToDoListItem+CoreDataProperties.swift */,
+				4B20964F28A33DC0009A13C1 /* MapViewController.swift */,
 			);
 			path = ShoppingList;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 				805BD19D287B44CA00209326 /* AppDelegate.swift in Sources */,
 				80B25EA1288F87D6003C01D3 /* ScannerViewDelegate.swift in Sources */,
 				805BD1B5287B458800209326 /* GroceryListViewController.swift in Sources */,
+				4B20965028A33DC0009A13C1 /* MapViewController.swift in Sources */,
 				9818FFC028A2A020002EC601 /* SummaryViewController.swift in Sources */,
 				5D2062092891232A00277017 /* ToDoListItem+CoreDataClass.swift in Sources */,
 				98BEACB4289D557100A6B828 /* ItemDetailViewController.swift in Sources */,

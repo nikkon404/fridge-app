@@ -17,28 +17,62 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="761"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="H0P-mY-m0s">
-                                <rect key="frame" x="0.0" y="88" width="390" height="673"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4HN-Kk-b81">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="761"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="H0P-mY-m0s">
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="761"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="hSs-CQ-EZJ">
+                                                <rect key="frame" x="0.0" y="44.666666030883789" width="390" height="43.666667938232422"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hSs-CQ-EZJ" id="Tff-5X-Azy">
+                                                    <rect key="frame" x="0.0" y="0.0" width="390" height="43.666667938232422"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </tableViewCellContentView>
+                                            </tableViewCell>
+                                        </prototypes>
+                                    </tableView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ba8-K6-LmH">
+                                        <rect key="frame" x="0.0" y="711" width="390" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="aeY-tT-x5T"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="f5s-en-oj6"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" image="map" catalog="system" title="  View Stores" imagePadding="4">
+                                            <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
+                                            <color key="baseBackgroundColor" red="0.2074047923" green="0.066004358230000004" blue="0.1098057851" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="onShowMapTap:" destination="Iw2-BS-vig" eventType="touchUpInside" id="Pq6-dI-rEi"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="hSs-CQ-EZJ">
-                                        <rect key="frame" x="0.0" y="44.666666030883789" width="390" height="43.666667938232422"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hSs-CQ-EZJ" id="Tff-5X-Azy">
-                                            <rect key="frame" x="0.0" y="0.0" width="390" height="43.666667938232422"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
+                                <constraints>
+                                    <constraint firstItem="H0P-mY-m0s" firstAttribute="top" secondItem="4HN-Kk-b81" secondAttribute="top" id="KzX-Lc-7f6"/>
+                                    <constraint firstAttribute="trailing" secondItem="H0P-mY-m0s" secondAttribute="trailing" id="Lr3-KN-b58"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ba8-K6-LmH" secondAttribute="bottom" id="NPO-Xx-fwf"/>
+                                    <constraint firstItem="H0P-mY-m0s" firstAttribute="leading" secondItem="4HN-Kk-b81" secondAttribute="leading" id="THx-HQ-UAh"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ba8-K6-LmH" secondAttribute="trailing" id="U76-Gg-cED"/>
+                                    <constraint firstItem="Ba8-K6-LmH" firstAttribute="leading" secondItem="4HN-Kk-b81" secondAttribute="leading" id="tGg-Zh-88c"/>
+                                    <constraint firstAttribute="bottom" secondItem="H0P-mY-m0s" secondAttribute="bottom" id="xWw-Mf-m3a"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="V0F-iX-39Z"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="H0P-mY-m0s" firstAttribute="top" secondItem="V0F-iX-39Z" secondAttribute="top" id="26K-f9-9gY"/>
-                            <constraint firstItem="V0F-iX-39Z" firstAttribute="bottom" secondItem="H0P-mY-m0s" secondAttribute="bottom" id="6sq-on-ml4"/>
-                            <constraint firstItem="H0P-mY-m0s" firstAttribute="leading" secondItem="V0F-iX-39Z" secondAttribute="leading" id="VqV-FF-vpT"/>
-                            <constraint firstItem="V0F-iX-39Z" firstAttribute="trailing" secondItem="H0P-mY-m0s" secondAttribute="trailing" id="v3d-1P-HNy"/>
+                            <constraint firstItem="4HN-Kk-b81" firstAttribute="top" secondItem="28a-16-2lC" secondAttribute="top" id="1Y5-aB-ljE"/>
+                            <constraint firstItem="4HN-Kk-b81" firstAttribute="top" secondItem="28a-16-2lC" secondAttribute="top" id="7Nh-KN-aKX"/>
+                            <constraint firstAttribute="bottom" secondItem="4HN-Kk-b81" secondAttribute="bottom" id="CXV-oQ-0EV"/>
+                            <constraint firstAttribute="trailing" secondItem="4HN-Kk-b81" secondAttribute="trailing" id="JdR-d9-lKx"/>
+                            <constraint firstAttribute="bottom" secondItem="4HN-Kk-b81" secondAttribute="bottom" id="Oyv-Tj-zq3"/>
+                            <constraint firstItem="4HN-Kk-b81" firstAttribute="leading" secondItem="28a-16-2lC" secondAttribute="leading" id="bOd-kP-raQ"/>
+                            <constraint firstItem="4HN-Kk-b81" firstAttribute="leading" secondItem="28a-16-2lC" secondAttribute="leading" id="fkm-GL-bHm"/>
+                            <constraint firstAttribute="trailing" secondItem="4HN-Kk-b81" secondAttribute="trailing" id="o2r-b1-hdJ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Shopping" id="DLp-8I-l9S"/>
@@ -49,6 +83,35 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vqC-79-hfS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2071.0144927536235" y="860.49107142857144"/>
+        </scene>
+        <!--Stores-->
+        <scene sceneID="NNS-OD-swh">
+            <objects>
+                <viewController storyboardIdentifier="MapPage" title="Stores" id="h89-gX-luV" customClass="MapViewController" customModule="FridgeApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ppe-Yf-xaM">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="35c-HA-kZd">
+                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
+                            </mapView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="fCR-5Y-Hxd"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="fCR-5Y-Hxd" firstAttribute="bottom" secondItem="35c-HA-kZd" secondAttribute="bottom" id="0r5-E3-eFZ"/>
+                            <constraint firstItem="35c-HA-kZd" firstAttribute="leading" secondItem="fCR-5Y-Hxd" secondAttribute="leading" id="jdr-9L-PPk"/>
+                            <constraint firstItem="fCR-5Y-Hxd" firstAttribute="trailing" secondItem="35c-HA-kZd" secondAttribute="trailing" id="lzT-Ih-KkN"/>
+                            <constraint firstItem="35c-HA-kZd" firstAttribute="top" secondItem="fCR-5Y-Hxd" secondAttribute="top" id="uBg-Wx-JSt"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="map" destination="35c-HA-kZd" id="JqR-s9-y2u"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UIA-cq-Ijh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2804" y="871"/>
         </scene>
         <!--Summary-->
         <scene sceneID="FB6-6V-1Yj">
@@ -415,10 +478,10 @@
             </objects>
             <point key="canvasLocation" x="5345.3271028037379" y="1190.2807775377971"/>
         </scene>
-        <!--Shopping-->
+        <!--Shopping Navigation-->
         <scene sceneID="piU-1J-5Av">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QhW-EJ-ofo" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QhW-EJ-ofo" userLabel="Shopping Navigation" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Shopping" image="cart" catalog="system" id="kPa-zD-i8V"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="9x6-fg-Zbp">
@@ -432,7 +495,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UE5-X9-VWW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1160.8695652173915" y="860.49107142857144"/>
+            <point key="canvasLocation" x="992" y="860"/>
         </scene>
         <!--Item Detail View Controller-->
         <scene sceneID="RPH-w7-Uco">
@@ -738,6 +801,7 @@
         <image name="house" catalog="system" width="128" height="106"/>
         <image name="left-door" width="244" height="586"/>
         <image name="list.dash" catalog="system" width="128" height="85"/>
+        <image name="map" catalog="system" width="128" height="110"/>
         <image name="right-door" width="244" height="586"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -29,6 +29,7 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
 
         //to add items
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(didTapAdd))
+       
     }
     
     //to add items
@@ -45,6 +46,19 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
             }))
         present(alert, animated: true)
     }
+    
+    
+    
+    @IBAction func onShowMapTap(_ sender: Any) {
+        
+        if let vc = self.storyboard?.instantiateViewController(withIdentifier: "MapPage") as? MapViewController {
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
+    
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //to get number of todolist items
         return models.count
@@ -58,6 +72,10 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         cell.textLabel?.text = model.name
         return cell
     }
+    
+    
+  
+    
     
     //to select row item
     
@@ -86,6 +104,7 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
             self?.deleteItem(item: item)
         
         }))
+        
 
         present(sheet, animated: true)
         
