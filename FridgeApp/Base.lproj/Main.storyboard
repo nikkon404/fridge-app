@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iW4-FN-psC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iW4-FN-psC">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -21,7 +22,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="hSs-CQ-EZJ">
-                                        <rect key="frame" x="0.0" y="28" width="390" height="43.666667938232422"/>
+                                        <rect key="frame" x="0.0" y="44.666666030883789" width="390" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hSs-CQ-EZJ" id="Tff-5X-Azy">
                                             <rect key="frame" x="0.0" y="0.0" width="390" height="43.666667938232422"/>
@@ -58,7 +59,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Summary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s6h-so-Ilu">
-                                <rect key="frame" x="140.66666666666666" y="54" width="108.66666666666666" height="0.3333333333333357"/>
+                                <rect key="frame" x="140.66666666666666" y="54" width="109" height="0.3333333333333357"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -296,48 +297,42 @@
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brand" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dvB-Lv-td8">
-                                                <rect key="frame" x="0.0" y="134.66666666666666" width="370" height="10.333333333333343"/>
+                                                <rect key="frame" x="0.0" y="134.66666666666666" width="370" height="20.333333333333343"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WlX-Vc-exK" userLabel="txt brand">
-                                                <rect key="frame" x="0.0" y="149" width="370" height="34"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="34" id="XK3-w7-ZhZ"/>
-                                                </constraints>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="78n-h0-Y8k" userLabel="brand input">
+                                                <rect key="frame" x="0.0" y="159" width="370" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
-                                                <connections>
-                                                    <action selector="txtBrand:" destination="vJt-jC-MIq" eventType="editingDidEnd" id="VGU-zR-bMg"/>
-                                                </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="75Z-3s-6qU">
-                                                <rect key="frame" x="0.0" y="187" width="370" height="20.333333333333343"/>
+                                                <rect key="frame" x="0.0" y="197" width="370" height="20.333333333333343"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xS5-cN-drZ">
-                                                <rect key="frame" x="0.0" y="211.33333333333331" width="370" height="90"/>
+                                                <rect key="frame" x="0.0" y="221.33333333333331" width="370" height="90"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="90" id="mOh-Q8-Etq"/>
                                                 </constraints>
                                             </pickerView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Image" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nP9-C1-mhg">
-                                                <rect key="frame" x="0.0" y="305.33333333333331" width="370" height="1"/>
+                                                <rect key="frame" x="0.0" y="315.33333333333331" width="370" height="20.333333333333314"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="c7B-9T-zwA">
-                                                <rect key="frame" x="0.0" y="310.33333333333331" width="370" height="150"/>
+                                                <rect key="frame" x="0.0" y="339.66666666666669" width="370" height="150"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="150" id="TeB-DM-EuN"/>
                                                 </constraints>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2NR-81-xa0">
-                                                <rect key="frame" x="0.0" y="464.33333333333337" width="370" height="40"/>
+                                                <rect key="frame" x="0.0" y="493.66666666666663" width="370" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="App-1x-VIM"/>
                                                 </constraints>
@@ -347,22 +342,22 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expiry Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yn0-gg-HAs">
-                                                <rect key="frame" x="0.0" y="508.33333333333331" width="370" height="20.333333333333314"/>
+                                                <rect key="frame" x="0.0" y="537.66666666666663" width="370" height="20.333333333333371"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <datePicker contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="fjO-ab-t67" userLabel="exp date picker">
-                                                <rect key="frame" x="0.0" y="532.66666666666663" width="370" height="50"/>
+                                                <rect key="frame" x="0.0" y="562" width="370" height="34"/>
                                             </datePicker>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reminder Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JfH-Ea-Qm9">
-                                                <rect key="frame" x="0.0" y="586.66666666666663" width="370" height="20.333333333333371"/>
+                                                <rect key="frame" x="0.0" y="600" width="370" height="20.333333333333371"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <datePicker contentMode="center" contentHorizontalAlignment="leading" contentVerticalAlignment="top" datePickerMode="dateAndTime" minuteInterval="1" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="Wzn-xY-D0e" userLabel="reminder time picker">
-                                                <rect key="frame" x="0.0" y="611" width="370" height="50"/>
+                                                <rect key="frame" x="0.0" y="624.33333333333337" width="370" height="36.666666666666629"/>
                                             </datePicker>
                                         </subviews>
                                         <constraints>
@@ -411,7 +406,7 @@
                         <outlet property="expDatepicker" destination="fjO-ab-t67" id="arb-LB-Vxg"/>
                         <outlet property="itemImage" destination="c7B-9T-zwA" id="dBA-xx-yOc"/>
                         <outlet property="reminderDateTimePicker" destination="Wzn-xY-D0e" id="efm-ii-6Qr"/>
-                        <outlet property="txtBrand" destination="WlX-Vc-exK" id="hiX-QG-zCC"/>
+                        <outlet property="txtBrandInput" destination="78n-h0-Y8k" id="OkJ-0C-RFg"/>
                         <outlet property="txtDescription" destination="OlF-la-jTH" id="IPz-yx-FyB"/>
                         <outlet property="txtTitle" destination="jA7-Mu-vIw" id="jJj-hs-HaS"/>
                     </connections>
@@ -611,7 +606,7 @@
                                         <rect key="frame" x="0.0" y="100" width="390" height="617"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="86" id="1Ca-gf-DBC" customClass="ItemCellView" customModule="FridgeApp" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="28" width="390" height="86"/>
+                                                <rect key="frame" x="0.0" y="44.666666030883789" width="390" height="86"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1Ca-gf-DBC" id="XiH-kc-Ztu">
                                                     <rect key="frame" x="0.0" y="0.0" width="390" height="86"/>
