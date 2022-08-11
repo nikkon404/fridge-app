@@ -26,12 +26,11 @@ class Constants{
 
     
     static let categories = ["Vegetables", "Fruits", "Meat", "Dairy", "Grains", "Legumes", "Baked Goods", "Seafood", "Nuts and seeds", "Herbs and Spices", "Garnishes", "Others"]
-       
-
+      
     
 }
 
-//enum or order by query in sqlite
+//enum for order by query in sqlite
 enum SortBy: String {
     case expDsc = "expiryDate DESC"
     case expAsc = "expiryDate ASC"
