@@ -23,16 +23,15 @@ class Constants{
     //for database
     static let databaseName = "fridgeApp.sqlite"
     static let groceryTable = "groceries"
-    static let shoppingListTable = "shopping_list"
+
     
     static let categories = ["Vegetables", "Fruits", "Meat", "Dairy", "Grains", "Legumes", "Baked Goods", "Seafood", "Nuts and seeds", "Herbs and Spices", "Garnishes", "Others"]
        
-    
-    //notif
-    static let onDataChanged = "dataChanged"
+
     
 }
 
+//enum or order by query in sqlite
 enum SortBy: String {
     case expDsc = "expiryDate DESC"
     case expAsc = "expiryDate ASC"

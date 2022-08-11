@@ -53,7 +53,6 @@ class GroceryListViewController: UIViewController {
         productTableView.register(UITableViewCell.self,
                                   forCellReuseIdentifier: GroceryListViewController.kTableCellID)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(self.refreshData), name: NSNotification.Name(rawValue: Constants.onDataChanged), object: nil)
         
         GroceryListViewController.instance = self
         
@@ -148,7 +147,6 @@ extension GroceryListViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selected = items[indexPath.row]
         
-        //TODO: goto detail page
         if let vc = self.storyboard?.instantiateViewController(withIdentifier: "kItemDetailViewController") as? ItemDetailViewController {
             vc.item = selected
             present(vc, animated: true, completion: nil)
@@ -173,7 +171,7 @@ extension GroceryListViewController : UITableViewDataSource {
             items.remove(at: indexPath.row)
             self.refreshData()
             
-            
+            SummaryViewController.instance?.setupData()
             
         } else if editingStyle == .insert {
             

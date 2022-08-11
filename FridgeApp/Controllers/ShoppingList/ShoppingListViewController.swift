@@ -1,5 +1,5 @@
 //
-//  ToDoViewController.swift
+//  ShoppingListViewController.swift
 //  FridgeApp
 //
 //  Created by user206611 on 7/25/22.
@@ -13,10 +13,9 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var tableView: UITableView!
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    //todolist
    
-    //array to store todolistiitmes
-    private var models = [ToDoListItem]()
+    //array to store shopping list
+    private var models = [ShoppingListItem]()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,10 +24,10 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         
         //to get saved items in database after the app is relaunched
         getAllItems()
-        //storyboard?.instantiateViewController(withIdentifier: "ToDoViewController")
 
         //to add items
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(didTapAdd))
+       
     }
     
     //to add items
@@ -45,8 +44,21 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
             }))
         present(alert, animated: true)
     }
+    
+    
+    
+    @IBAction func onShowMapTap(_ sender: Any) {
+        
+        if let vc = self.storyboard?.instantiateViewController(withIdentifier: "MapPage") as? MapViewController {
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
+    
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //to get number of todolist items
+        //to get number of ShoppingList items
         return models.count
     }
 //displaying data for each cell
@@ -58,6 +70,10 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         cell.textLabel?.text = model.name
         return cell
     }
+    
+    
+  
+    
     
     //to select row item
     
@@ -86,6 +102,7 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
             self?.deleteItem(item: item)
         
         }))
+        
 
         present(sheet, animated: true)
         
@@ -96,7 +113,7 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
     func getAllItems(){
         
         do{
-            models = try context.fetch(ToDoListItem.fetchRequest())
+            models = try context.fetch(ShoppingListItem.fetchRequest())
             
             //reloading data on main thread
             DispatchQueue.main.async {
@@ -114,7 +131,7 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
     func createItem(name: String){
         
         //creating new item
-        let newItem = ToDoListItem(context: context)
+        let newItem = ShoppingListItem(context: context)
         newItem.name = name
         newItem.createdAt = Date()
         
@@ -128,7 +145,7 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         }
     }
     
-    func deleteItem(item: ToDoListItem){
+    func deleteItem(item: ShoppingListItem){
         //deleting an item
         
         context.delete(item)
@@ -143,7 +160,7 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         
     }
     
-    func updateItem(item: ToDoListItem, newName: String){
+    func updateItem(item: ShoppingListItem, newName: String){
         
         item.name = newName
         do{

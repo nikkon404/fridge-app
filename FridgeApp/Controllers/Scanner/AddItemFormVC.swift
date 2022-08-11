@@ -19,18 +19,24 @@ class AddItemFormVC: UIViewController{
     @IBOutlet weak var expDatepicker: UIDatePicker!
     @IBOutlet weak var reminderDateTimePicker: UIDatePicker!
     @IBOutlet weak var txtTitle: UITextField!
+    
+    @IBOutlet weak var txtBrandInput: UITextField!
     @IBOutlet weak var txtDescription: UITextView!
-    @IBOutlet weak var txtBrand: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         categoryPicker.dataSource = self
         categoryPicker.delegate = self
         
+        
+        txtTitle.delegate = self
+        txtBrandInput.delegate = self
+        
         //set data in textbox
         setupView()
     }
     
+    //function to show user alert
     func showAlert(_ title: String,_ msg: String) {
         let alert = UIAlertController(title: title, message: msg, preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertAction.Style.default, handler: nil))
@@ -38,6 +44,8 @@ class AddItemFormVC: UIViewController{
         
     }
     
+    
+    //callback for save button
     @IBAction func onSavePressed(_ sender: Any) {
         if let err = valiDateInput() {
             showAlert("Error",err)
@@ -70,13 +78,15 @@ class AddItemFormVC: UIViewController{
         }
     }
     
+    
+    //method to populate grocery data into text boxes and views
     public func setupView()  {
         reminderDateTimePicker.minimumDate = Date()
-      //  expDatepicker.minimumDate = Date()
+        expDatepicker.minimumDate = Date()
         
         txtTitle.text = item?.title ?? ""
         txtDescription.text = item?.description ?? ""
-        txtBrand.text = item?.brand ?? ""
+        txtBrandInput.text = item?.brand ?? ""
         
         if let img = item?.getRenderableImage(){
             itemImage.image = Converter.base64StringToImage(imageBase64String: img)
@@ -108,7 +118,7 @@ class AddItemFormVC: UIViewController{
     func valiDateInput() -> String? {
         item?.title = txtTitle.text
         item?.description = txtDescription.text
-        item?.brand =  txtBrand.text
+       item?.brand =  txtBrandInput.text
         item?.category =  Constants.categories[ categoryPicker.selectedRow(inComponent: 0)]
         
         if (item?.title ?? "") == "" {
@@ -205,3 +215,10 @@ extension AddItemFormVC : UIImagePickerControllerDelegate & UINavigationControll
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {}
 }
 
+extension AddItemFormVC : UITextFieldDelegate{
+    // Code to dismiss keyboard after return
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+}
