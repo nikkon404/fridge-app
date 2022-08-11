@@ -6,7 +6,8 @@
 //
 
 import UIKit
-import DropDown
+import DropDown //external library
+//https://cocoapods.org/pods/DropDown
 
 
 //class responsible for showing list of grocery items in a table view
@@ -59,6 +60,7 @@ class GroceryListViewController: UIViewController {
     }
     
     
+    //setting up dropown options
     func setupMenu()  {
         
         var options = Constants.categories
@@ -85,6 +87,8 @@ class GroceryListViewController: UIViewController {
         menu.show()
     }
     
+
+    //makes call to database and updates the table view
     @objc  func refreshData(){
         self.items = DatabaseService.getAllGroceryItems(searchText: txtSearch.text ?? "", orderBy : selectedSort ,  category: selectedCat )
         productTableView.reloadData();
@@ -93,6 +97,7 @@ class GroceryListViewController: UIViewController {
     
     
     
+    //methold to clear textbox and dissmiss on clear button tap
     @IBAction func onClearTap(_ sender: Any) {
         txtSearch.text = ""
         self.view.endEditing(true)
@@ -100,10 +105,12 @@ class GroceryListViewController: UIViewController {
     }
     
     
+
+    //method called when sort button is tapped
     @IBAction func onSortTap(_ sender: Any) {
         
         //showing action sheet to let user select sort by
-        let imageSourceSelector = UIAlertController(title: nil, message: nil, preferredStyle:.actionSheet)
+        let sortSelector = UIAlertController(title: nil, message: nil, preferredStyle:.actionSheet)
         
         let expFirst = UIAlertAction(title: "Expiring First", style: .default) { (action) in
             self.selectedSort = SortBy.expAsc
@@ -127,22 +134,23 @@ class GroceryListViewController: UIViewController {
         }
         
         // Adding the actions to  actionSheet
-        imageSourceSelector.addAction(expFirst)
-        imageSourceSelector.addAction(expLast)
-        imageSourceSelector.addAction(addedFirst)
-        imageSourceSelector.addAction(adedLast)
+        sortSelector.addAction(expFirst)
+        sortSelector.addAction(expLast)
+        sortSelector.addAction(addedFirst)
+        sortSelector.addAction(adedLast)
         
-        imageSourceSelector.addAction(cancel)
+        sortSelector.addAction(cancel)
         
         
         // Present the action sheet
-        self.present(imageSourceSelector, animated: true,completion: nil)
+        self.present(sortSelector, animated: true,completion: nil)
     }
     
     
     
 }
 
+//extension for the view to configure table view
 extension GroceryListViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selected = items[indexPath.row]
@@ -158,19 +166,25 @@ extension GroceryListViewController : UITableViewDelegate {
     
 }
 
+//extension for the view to configure table data source
 extension GroceryListViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         items.count
     }
     
+
+    //handeling table cell swipe
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+
+            //deleting item from table and database after right swipe
             _ = DatabaseService.deleteGroceryItem(id: items[indexPath.row].id ?? 0)
           
             items.remove(at: indexPath.row)
             self.refreshData()
             
+            //updating the summary view after data changed
             SummaryViewController.instance?.setupData()
             
         } else if editingStyle == .insert {

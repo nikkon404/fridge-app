@@ -2,7 +2,7 @@
 //  ShoppingListItem+CoreDataClass.swift
 //  FridgeApp
 //
-//  Created by Ali on 7/27/22.
+//  Created by Alimehdi Sajjadali Malpara on 7/27/22.
 //
 //
 

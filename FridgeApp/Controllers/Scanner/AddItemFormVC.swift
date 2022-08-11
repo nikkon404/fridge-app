@@ -2,7 +2,7 @@
 //  AddItemFormVC.swift
 //  FridgeApp
 //
-//  Created by Aayush Subedi on 7/29/22.
+//  Created by Prabhjot Kaur on 7/29/22.
 //
 
 import UIKit

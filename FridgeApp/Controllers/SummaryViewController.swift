@@ -2,7 +2,7 @@
 //  HomeViewController.swift
 //  FridgeApp
 //
-//  Created by Aayush Subedi on 8/9/22.
+//  Created by Devansh Vipulkumar Shah on 8/9/22.
 //
 
 import UIKit

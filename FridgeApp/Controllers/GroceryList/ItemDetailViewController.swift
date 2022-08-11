@@ -2,7 +2,7 @@
 //  ItemDetailViewController.swift
 //  FridgeApp
 //
-//  Created by Aayush Subedi on 8/5/22.
+//  Created by Manuel Francis on 8/5/22.
 //
 
 import UIKit
