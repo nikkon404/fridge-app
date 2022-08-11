@@ -8,3 +8,4 @@ To run this project, open the project folder in Terminal and run command:
 ```pod install```
 
 Then open ```FridgeApp.xcworkspace``` in XCode
+
