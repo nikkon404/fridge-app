@@ -58,7 +58,7 @@ class SummaryViewController: UIViewController, ChartViewDelegate {
             barChart.removeFromSuperview()
             pieChart.removeFromSuperview()
             
-            setupUpperChart()
+           setupUpperChart()
             setupPieChart()
         }
                 
