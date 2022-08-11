@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		4B20965028A33DC0009A13C1 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B20964F28A33DC0009A13C1 /* MapViewController.swift */; };
 		5D2062052891218900277017 /* FridgeApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5D2062032891218900277017 /* FridgeApp.xcdatamodeld */; };
-		5D2062092891232A00277017 /* ToDoListItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2062072891232A00277017 /* ToDoListItem+CoreDataClass.swift */; };
-		5D20620A2891232A00277017 /* ToDoListItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2062082891232A00277017 /* ToDoListItem+CoreDataProperties.swift */; };
+		5D2062092891232A00277017 /* ShoppingListItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2062072891232A00277017 /* ShoppingListItem+CoreDataClass.swift */; };
+		5D20620A2891232A00277017 /* ShoppingListItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2062082891232A00277017 /* ShoppingListItem+CoreDataProperties.swift */; };
 		5D7BE935288E74C200E60CF7 /* ShoppingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7BE934288E74C200E60CF7 /* ShoppingListViewController.swift */; };
 		801753F62880A9E300414078 /* AddProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801753F52880A9E300414078 /* AddProductViewController.swift */; };
 		805BD19D287B44CA00209326 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805BD19C287B44CA00209326 /* AppDelegate.swift */; };
@@ -40,8 +40,8 @@
 		258AAA987B64AB99573C3EAD /* Pods-FridgeApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FridgeApp.release.xcconfig"; path = "Target Support Files/Pods-FridgeApp/Pods-FridgeApp.release.xcconfig"; sourceTree = "<group>"; };
 		4B20964F28A33DC0009A13C1 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		5D2062042891218900277017 /* FridgeApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FridgeApp.xcdatamodel; sourceTree = "<group>"; };
-		5D2062072891232A00277017 /* ToDoListItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToDoListItem+CoreDataClass.swift"; sourceTree = "<group>"; };
-		5D2062082891232A00277017 /* ToDoListItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToDoListItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		5D2062072891232A00277017 /* ShoppingListItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShoppingListItem+CoreDataClass.swift"; sourceTree = "<group>"; };
+		5D2062082891232A00277017 /* ShoppingListItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShoppingListItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		5D7BE934288E74C200E60CF7 /* ShoppingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListViewController.swift; sourceTree = "<group>"; };
 		77118171292CB8EB45AD4C5B /* Pods_FridgeApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FridgeApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		801753F52880A9E300414078 /* AddProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductViewController.swift; sourceTree = "<group>"; };
@@ -95,8 +95,8 @@
 			isa = PBXGroup;
 			children = (
 				5D7BE934288E74C200E60CF7 /* ShoppingListViewController.swift */,
-				5D2062072891232A00277017 /* ToDoListItem+CoreDataClass.swift */,
-				5D2062082891232A00277017 /* ToDoListItem+CoreDataProperties.swift */,
+				5D2062072891232A00277017 /* ShoppingListItem+CoreDataClass.swift */,
+				5D2062082891232A00277017 /* ShoppingListItem+CoreDataProperties.swift */,
 				4B20964F28A33DC0009A13C1 /* MapViewController.swift */,
 			);
 			path = ShoppingList;
@@ -329,13 +329,13 @@
 				9897326B2884528100650C2E /* Constants.swift in Sources */,
 				5D2062052891218900277017 /* FridgeApp.xcdatamodeld in Sources */,
 				80B25E8D288B1893003C01D3 /* FetchProductViewController.swift in Sources */,
-				5D20620A2891232A00277017 /* ToDoListItem+CoreDataProperties.swift in Sources */,
+				5D20620A2891232A00277017 /* ShoppingListItem+CoreDataProperties.swift in Sources */,
 				805BD19D287B44CA00209326 /* AppDelegate.swift in Sources */,
 				80B25EA1288F87D6003C01D3 /* ScannerViewDelegate.swift in Sources */,
 				805BD1B5287B458800209326 /* GroceryListViewController.swift in Sources */,
 				4B20965028A33DC0009A13C1 /* MapViewController.swift in Sources */,
 				9818FFC028A2A020002EC601 /* SummaryViewController.swift in Sources */,
-				5D2062092891232A00277017 /* ToDoListItem+CoreDataClass.swift in Sources */,
+				5D2062092891232A00277017 /* ShoppingListItem+CoreDataClass.swift in Sources */,
 				98BEACB4289D557100A6B828 /* ItemDetailViewController.swift in Sources */,
 				9897327228845E1800650C2E /* ApiService.swift in Sources */,
 				805BD1DA2880980500209326 /* BarcodeScannerViewController.swift in Sources */,

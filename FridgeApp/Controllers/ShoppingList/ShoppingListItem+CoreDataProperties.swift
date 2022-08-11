@@ -1,5 +1,5 @@
 //
-//  ToDoListItem+CoreDataProperties.swift
+//  ShoppingListItem+CoreDataProperties.swift
 //  FridgeApp
 //
 //  Created by user206611 on 7/27/22.
@@ -10,11 +10,11 @@ import Foundation
 import CoreData
 
 
-extension ToDoListItem {
+extension ShoppingListItem {
 
     //to fetch data
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<ToDoListItem> {
-        return NSFetchRequest<ToDoListItem>(entityName: "ToDoListItem")
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<ShoppingListItem> {
+        return NSFetchRequest<ShoppingListItem>(entityName: "ShoppingListItem")
     }
 //nsmanaged to access dtabase items
     @NSManaged public var name: String?
@@ -24,6 +24,6 @@ extension ToDoListItem {
 
 }
 
-extension ToDoListItem : Identifiable {
+extension ShoppingListItem : Identifiable {
 
 }

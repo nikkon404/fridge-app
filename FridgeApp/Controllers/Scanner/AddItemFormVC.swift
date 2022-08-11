@@ -82,7 +82,7 @@ class AddItemFormVC: UIViewController{
     //method to populate grocery data into text boxes and views
     public func setupView()  {
         reminderDateTimePicker.minimumDate = Date()
-      //  expDatepicker.minimumDate = Date()
+        expDatepicker.minimumDate = Date()
         
         txtTitle.text = item?.title ?? ""
         txtDescription.text = item?.description ?? ""
